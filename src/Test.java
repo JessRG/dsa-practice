@@ -11,6 +11,7 @@ public class Test {
         System.out.println(longestCommonPrefix(new String[] { "hello","hell","helenor" }));
         System.out.println(longestCommonPrefix(new String[] { }));
         System.out.println(longestCommonPrefix(new String[] { "a" }));
+        System.out.println(longestCommonPrefix(new String[] { "reflower", "flow", "flight" }));
     }
 
     // Two Sum
@@ -55,17 +56,18 @@ public class Test {
             // check if the letters of the smallest string are contained within all words
             StringBuilder prefix = new StringBuilder();
             boolean flag = true;
-            for(int i = 0; i < s.length(); i++) {
+            for(int i = s.length(); i >= 0; i--) {
+                s = s.substring(0, i);
                 for(int j = 0; j < strs.length; j++) {
-                    if(s.charAt(i) != strs[j].charAt(i) && i == 0) {
-                        return "";
-                    } else if(s.charAt(i) != strs[j].charAt(i)) {
+                    if(!strs[j].substring(0, i).contains(s)) {
                         flag = false;
                         break;
                     }
+                    flag = true;
                 }
-                if (flag) {
-                    prefix.append(s.charAt(i));
+                if(flag) {
+                    prefix.append(s);
+                    break;
                 }
             }
 
