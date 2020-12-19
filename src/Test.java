@@ -20,10 +20,22 @@ public class Test {
 //        System.out.println(lcList.isValid("([)]"));
 //        System.out.println(lcList.isValid("{[]}"));
 //        System.out.println(lcList.isValid("(){[]}"));
-        System.out.println(lcList.isValid("{[]}()"));
-        System.out.println(lcList.isValid("(}{[]}[}"));
-//        System.out.println(lcList.isValid(""));
-        System.out.println(lcList.isValid("[](])"));
+//        System.out.println(lcList.isValid("{[]}()"));
+//        System.out.println(lcList.isValid("(}{[]}[}"));
+//        System.out.println(lcList.isValid("[](])"));
+
+        int[] arr = new int[] { 1,1,2 };
+        arr = new int[] { 0,0,1,1,1,2,2,3,3,4 };
+        arr = new int[] { -3,-1,0,0,0,3,3 };
+        int len = lcList.removeDuplicates(arr);
+        System.out.print(len + ", [");
+        for(int i = 0; i < len; i++) {
+            if (i == len - 1) {
+                System.out.println(arr[i] + "]");
+            } else {
+                System.out.print(arr[i] + ",");
+            }
+        }
     }
 
 }
