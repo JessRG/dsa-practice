@@ -160,7 +160,37 @@ public class LeetcodeList {
 
     // Implement strStr()
     // Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-//    public int strStr(String haystack, String needle) {
-//
-//    }
+    // Clarification:
+    // What should we return when needle is an empty string? This is a great question to ask during an interview.
+    // For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
+    public int strStr(String haystack, String needle) {
+        return haystack.indexOf(needle);
+    }
+
+    // Given the root node of a binary search tree (BST) and a value. You need to find the node in the BST that the node's value equals
+    // the given value. Return the subtree rooted with that node. If such node doesn't exist, you should return NULL.
+    public TreeNode searchBST(TreeNode root, int val) {
+        if(root == null) return null;
+
+        TreeNode current = root;
+        while(current != null) {
+            // val is less than the current node value
+            // traverse to the left side of the tree
+            if(val < current.val && current.left != null) {
+                current = current.left;
+            }
+            // val is greater than current node value
+            // traverse to the right side of the tree
+            else if (val > current.val && current.right != null) {
+                current = current.right;
+            }
+            // if val is equal to the current node break the loop
+            else if(val == current.val) {
+                break;
+            } else {
+                return null;
+            }
+        }
+        return current;
+    }
 }
