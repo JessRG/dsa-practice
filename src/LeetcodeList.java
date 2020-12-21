@@ -167,6 +167,7 @@ public class LeetcodeList {
         return haystack.indexOf(needle);
     }
 
+    // Search in a Binary Search Tree
     // Given the root node of a binary search tree (BST) and a value. You need to find the node in the BST that the node's value equals
     // the given value. Return the subtree rooted with that node. If such node doesn't exist, you should return NULL.
     public TreeNode searchBST(TreeNode root, int val) {
@@ -192,5 +193,47 @@ public class LeetcodeList {
             }
         }
         return current;
+    }
+
+    // Merge Sorted Array
+    // Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+    // Note:
+    // The number of elements initialized in nums1 and nums2 are m and n respectively.
+    // You may assume that nums1 has enough space (size that is equal to m + n) to hold additional elements from nums2.
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // Declare ArrayList to store the elements of both nums1 and nums2
+        ArrayList<Integer> al = new ArrayList<>();
+
+        // Declare int j as an index to iterate through both nums1 and nums2
+        int j = 0;
+
+        // Add elements from both nums1 and nums2 into the ArrayList
+        for(int i = 0; i < m+n; i++) {
+            // Add element from nums1 into ArrayList if i is less than m
+            if(i < m) {
+                al.add(nums1[j]);
+            }
+            // set j back to 0 if i is exactly equal to m, then add the first element from nums2
+            else if (i == m) {
+                j = 0;
+                al.add(nums2[j]);
+            }
+            // add elements from nums2 into ArrayList
+            else {
+                al.add(nums2[j]);
+            }
+            // increment j
+            j++;
+        }
+
+        // sort ArrayList al
+        Collections.sort(al);
+
+        // assign j back to 0 (used as an iterator for nums1 in enhanced for loop)
+        j = 0;
+        // loop through ArrayList and re-assign the sorted list of integers to nums1
+        for(int elem : al) {
+            nums1[j++] = elem;
+        }
     }
 }

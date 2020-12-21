@@ -53,37 +53,46 @@ public class Test {
         /** End Test of Implement strStr() **/
 
         /** Test of Search in a Binary Search Tree **/
-        TreeNode tree = new TreeNode(4, new TreeNode(2), new TreeNode(7));
-        tree.left.left = new TreeNode(1);
-        tree.left.right = new TreeNode(3);
-//        TreeNode sTree = lcList.searchBST(tree, 2);
-
-        tree = new TreeNode(1, null, new TreeNode(2));
-        tree.right.left = new TreeNode(3);
-//        TreeNode sTree = lcList.searchBST(tree, 2);
-
-        tree = new TreeNode(5, new TreeNode(4), new TreeNode(7));
-        tree.left.left = new TreeNode(3);
-        tree.left.left.left = new TreeNode(-1);
-        tree.right.left = new TreeNode(2);
-        tree.right.left.left = new TreeNode(9);
-        TreeNode sTree = lcList.searchBST(tree, 8);
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-
-        if (sTree != null) {
-            Queue<TreeNode> lvlOrderTree = TreeNode.traverseTree(sTree);
-            Iterator it = lvlOrderTree.iterator();
-            int i = 0;
-            while(it.hasNext()) {
-                i++;
-                sb.append( String.format("%d%s", ((TreeNode) it.next()).val, i == lvlOrderTree.size() ? "]" : ",") );
-            }
-        } else{
-            sb.append("]");
-        }
-        System.out.println(sb);
+//        TreeNode tree = new TreeNode(4, new TreeNode(2), new TreeNode(7));
+//        tree.left.left = new TreeNode(1);
+//        tree.left.right = new TreeNode(3);
+////        TreeNode sTree = lcList.searchBST(tree, 2);
+//
+//        tree = new TreeNode(1, null, new TreeNode(2));
+//        tree.right.left = new TreeNode(3);
+////        TreeNode sTree = lcList.searchBST(tree, 2);
+//
+//        tree = new TreeNode(5, new TreeNode(4), new TreeNode(7));
+//        tree.left.left = new TreeNode(3);
+//        tree.left.left.left = new TreeNode(-1);
+//        tree.right.left = new TreeNode(2);
+//        tree.right.left.left = new TreeNode(9);
+//        TreeNode sTree = lcList.searchBST(tree, 8);
+//
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("[");
+//
+//        if (sTree != null) {
+//            Queue<TreeNode> lvlOrderTree = TreeNode.traverseTree(sTree);
+//            Iterator it = lvlOrderTree.iterator();
+//            int i = 0;
+//            while(it.hasNext()) {
+//                i++;
+//                sb.append( String.format("%d%s", ((TreeNode) it.next()).val, i == lvlOrderTree.size() ? "]" : ",") );
+//            }
+//        } else{
+//            sb.append("]");
+//        }
+//        System.out.println(sb);
         /** End Test of Search in a Binary Search Tree **/
+
+        /** Test of Merge Sorted Array **/
+        int[] nums1 = new int[] {1,2,3,0,0,0};
+        lcList.merge(nums1, 3, new int[] {2,5,6}, 3);
+        System.out.print("[");
+        for(int i = 0; i < nums1.length; i++) {
+            System.out.print(String.format("%d%s", nums1[i], i == nums1.length - 1 ? "]" : ","));
+        }
+        /** End Test of Merge Sorted Array **/
     }
 }
