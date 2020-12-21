@@ -89,6 +89,11 @@ public class Test {
         /** Test of Merge Sorted Array **/
         int[] nums1 = new int[] {1,2,3,0,0,0};
         lcList.merge(nums1, 3, new int[] {2,5,6}, 3);
+        lcList.merge(nums1, 3, new int[] {}, 0);
+        nums1 = new int[] {0};
+        lcList.merge(nums1, 0, new int[] {}, 0);
+        nums1 = new int[] {2,0};
+        lcList.merge(nums1, 1, new int[] {1}, 1);
         System.out.print("[");
         for(int i = 0; i < nums1.length; i++) {
             System.out.print(String.format("%d%s", nums1[i], i == nums1.length - 1 ? "]" : ","));
