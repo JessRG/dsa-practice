@@ -275,4 +275,21 @@ public class LeetcodeList {
         // return the of the new list
         return head.next;
     }
+
+    // Convert Sorted Array to Binary Search Tree
+    // Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+    // For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+    public TreeNode sortedArrayToBST(int[] nums) {
+        // check nums array
+        if(nums != null || nums.length == 0) return null;
+
+        // return the root node from the overloaded method sortedArrayToBST
+        return sortedArrayToBST(0, nums.length - 1, nums);
+    }
+    // the divide and conquer algorithm (method overload)
+    public TreeNode sortedArrayToBST(int low, int high, int[] nums) {
+        // need write the logic out for this method
+        TreeNode root = new TreeNode();
+        return root;
+    }
 }

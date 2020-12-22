@@ -55,4 +55,40 @@ public class TreeNode {
         // return fot queue (level order tree)
         return lot;
     }
+
+    // traversal method to display level order (first order traversal) traversal on the binary search tree (BST)
+    public static void displayTree(TreeNode node) {
+
+        if(node == null) return;
+
+        // Declare two queues (que, fot)
+        // one to help perform first order traversal (level order traversal) of the tree
+        Queue<TreeNode> que = new LinkedList<>();
+
+        // add root node of BST to que
+        que.add(node);
+
+        // while loop to begin traversing the tree
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        while(!que.isEmpty()) {
+
+            // poll the present head of the queue
+            TreeNode tempNode = que.poll();
+
+            // append val to the string builder
+            sb.append(tempNode.val + ",");
+
+            // Enqueue the left child node
+            if(tempNode.left != null) {
+                que.add(tempNode.left);
+            }
+            // Enqueue the right child node
+            if(tempNode.right != null) {
+                que.add(tempNode.right);
+            }
+        }
+        sb.replace(sb.length() - 1, sb.length(), "]");
+        System.out.println(sb);
+    }
 }
