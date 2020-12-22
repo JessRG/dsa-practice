@@ -87,17 +87,23 @@ public class Test {
         /** End Test of Search in a Binary Search Tree **/
 
         /** Test of Merge Sorted Array **/
-        int[] nums1 = new int[] {1,2,3,0,0,0};
-        lcList.merge(nums1, 3, new int[] {2,5,6}, 3);
-        lcList.merge(nums1, 3, new int[] {}, 0);
-        nums1 = new int[] {0};
-        lcList.merge(nums1, 0, new int[] {}, 0);
-        nums1 = new int[] {2,0};
-        lcList.merge(nums1, 1, new int[] {1}, 1);
-        System.out.print("[");
-        for(int i = 0; i < nums1.length; i++) {
-            System.out.print(String.format("%d%s", nums1[i], i == nums1.length - 1 ? "]" : ","));
-        }
+//        int[] nums1 = new int[] {1,2,3,0,0,0};
+//        lcList.merge(nums1, 3, new int[] {2,5,6}, 3);
+//        lcList.merge(nums1, 3, new int[] {}, 0);
+//        nums1 = new int[] {0};
+//        lcList.merge(nums1, 0, new int[] {}, 0);
+//        nums1 = new int[] {2,0};
+//        lcList.merge(nums1, 1, new int[] {1}, 1);
+//        System.out.print("[");
+//        for(int i = 0; i < nums1.length; i++) {
+//            System.out.print(String.format("%d%s", nums1[i], i == nums1.length - 1 ? "]" : ","));
+//        }
         /** End Test of Merge Sorted Array **/
+
+        /** Test of Merge Two Sorted Lists **/
+        ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(4)) );
+        ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)) );
+        ListNode.traverseList(lcList.mergeTwoLists(l1, l2));
+        /** End Test of Merge Two Sorted Lists **/
     }
 }

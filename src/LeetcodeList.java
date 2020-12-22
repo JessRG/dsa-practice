@@ -236,4 +236,43 @@ public class LeetcodeList {
             nums1[j++] = elem;
         }
     }
+
+    // Merge Two Sorted Lists
+    // Merge two sorted linked lists and return it as a new sorted list.
+    // The new list should be made by splicing together the nodes of the first two lists.
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+
+        // create a new head to store a reference to the new list
+        ListNode head = new ListNode(-1);
+        // declare reference to new head node which will help splice the two lists together
+        ListNode splicer = head;
+
+        // loop to traverse through and compare the node values of the two sorted linked lists
+        while(l1 != null && l2 != null) {
+            // check if list 1's node value is less than or equal to list 2's node value
+            if(l1.val <= l2.val) {
+                // if list 1's node value is less, then set splicer.next reference to list 1's node
+                splicer.next = l1;
+                // set list 1's node to reference the subsequent node
+                l1 = l1.next;
+            } else {
+                // if list 2's node value is less, then set splicer.next reference to list 2's node
+                splicer.next = l2;
+                // set list 2's node to reference the subsequent node
+                l2 = l2.next;
+            }
+            // set splicer to the new subsequent node
+            splicer = splicer.next;
+        }
+
+        // check if either l1 or l2 is equal to null
+        if(l1 != null) {
+            splicer.next = l1;
+        } else {
+            splicer.next = l2;
+        }
+
+        // return the of the new list
+        return head.next;
+    }
 }
