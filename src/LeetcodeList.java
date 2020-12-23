@@ -4,9 +4,11 @@ public class LeetcodeList {
 
     // Declaring ArrayList object to help solve some problems
     private ArrayList<Integer> tree;
+    private List<List<Integer>> pascalT;
 
     LeetcodeList() {
         this.tree = new ArrayList<>();
+        this.pascalT = new ArrayList<>();
     }
 
     // Two Sum
@@ -291,7 +293,7 @@ public class LeetcodeList {
         // append the modified s string into the StringBuilder to take advantage of reverse method
         sb.append(str);
 
-        // return true or false if the strings are equal
+        // return true or false if the strings are/are not equal
         return sb.reverse().toString().equals(str);
     }
 
@@ -328,5 +330,12 @@ public class LeetcodeList {
         root.left = left;
         root.right = right;
         return root;
+    }
+
+    // Pascal's Triangle
+    // Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
+    public List<List<Integer>> generate(int numRows) {
+        // define the logic to generate pascal's triangle
+        return pascalT;
     }
 }

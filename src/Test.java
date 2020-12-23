@@ -113,8 +113,8 @@ public class Test {
 
         /** Test of Valid Palindrome **/
         String s = "A man, a plan, a canal: Panama";
-//        s = "race a car";
-        s = "0P";
+        s = "race a car";
+//        s = "0P";
         System.out.println(lcList.isPalindrome(s));
         /** End Test of Valid Palindrome **/
     }
