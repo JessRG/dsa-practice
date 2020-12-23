@@ -88,7 +88,8 @@ public class TreeNode {
                 que.add(tempNode.right);
             }
         }
-        sb.replace(sb.length() - 1, sb.length(), "]");
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append("]");
         System.out.println(sb);
     }
 }

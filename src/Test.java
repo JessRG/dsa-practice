@@ -101,13 +101,14 @@ public class Test {
         /** End Test of Merge Sorted Array **/
 
         /** Test of Merge Two Sorted Lists **/
-        ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(4)) );
-        ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)) );
-        ListNode.traverseList(lcList.mergeTwoLists(l1, l2));
+//        ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(4)) );
+//        ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)) );
+//        ListNode.traverseList(lcList.mergeTwoLists(l1, l2));
         /** End Test of Merge Two Sorted Lists **/
 
         /** Test of Convert Sorted Array to Binary Search Tree **/
-
+        int[] nums = new int[] {-10, -3, 0, 5, 9};
+        TreeNode.displayTree(lcList.sortedArrayToBST(nums));
         /** End Test of Convert Sorted Array to Binary Search Tree **/
     }
 }

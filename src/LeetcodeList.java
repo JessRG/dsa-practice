@@ -2,6 +2,12 @@ import java.util.*;
 
 public class LeetcodeList {
 
+    // Declaring ArrayList object to help solve some problems
+    private ArrayList<Integer> tree;
+
+    LeetcodeList() {
+        this.tree = new ArrayList<>();
+    }
 
     // Two Sum
     // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -281,15 +287,33 @@ public class LeetcodeList {
     // For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
     public TreeNode sortedArrayToBST(int[] nums) {
         // check nums array
-        if(nums != null || nums.length == 0) return null;
+        if(nums == null || nums.length == 0) return null;
+
+        // push all of the nums elements into ArrayList tree
+        for(int elem : nums) {
+            tree.add(elem);
+        }
 
         // return the root node from the overloaded method sortedArrayToBST
-        return sortedArrayToBST(0, nums.length - 1, nums);
+        return sortedArrayToBST(0, tree.size() - 1);
     }
     // the divide and conquer algorithm (method overload)
-    public TreeNode sortedArrayToBST(int low, int high, int[] nums) {
-        // need write the logic out for this method
-        TreeNode root = new TreeNode();
+    public TreeNode sortedArrayToBST(int low, int high) {
+
+        // check conditions
+        if(low > high || high < 0 || tree.isEmpty()) return null;
+        if(low == high) return new TreeNode(tree.get(low));
+
+        // find and a set the mid value and set up the root node
+        int mid = (low + high) / 2;
+        TreeNode root = new TreeNode(tree.get(mid));
+
+        // build left child
+        TreeNode left = sortedArrayToBST(low, mid-1);
+        // build right child
+        TreeNode right = sortedArrayToBST(mid+1, high);
+        root.left = left;
+        root.right = right;
         return root;
     }
 }
