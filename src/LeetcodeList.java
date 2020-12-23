@@ -282,6 +282,19 @@ public class LeetcodeList {
         return head.next;
     }
 
+    // Valid Palindrome
+    // Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+    public boolean isPalindrome(String s) {
+        StringBuilder sb = new StringBuilder();
+        // store lowercase string s after replacing all special characters and spaces
+        String str = s.toLowerCase().replaceAll("[^a-z0-9]+", "");
+        // append the modified s string into the StringBuilder to take advantage of reverse method
+        sb.append(str);
+
+        // return true or false if the strings are equal
+        return sb.reverse().toString().equals(str);
+    }
+
     // Convert Sorted Array to Binary Search Tree
     // Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
     // For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
@@ -295,23 +308,23 @@ public class LeetcodeList {
         }
 
         // return the root node from the overloaded method sortedArrayToBST
-        return sortedArrayToBST(0, tree.size() - 1);
+        return buildTree(0, tree.size() - 1);
     }
     // the divide and conquer algorithm (method overload)
-    public TreeNode sortedArrayToBST(int low, int high) {
+    public TreeNode buildTree(int low, int high) {
 
         // check conditions
         if(low > high || high < 0 || tree.isEmpty()) return null;
         if(low == high) return new TreeNode(tree.get(low));
 
-        // find and a set the mid value and set up the root node
+        // find and set the mid value and set up the root node
         int mid = (low + high) / 2;
         TreeNode root = new TreeNode(tree.get(mid));
 
         // build left child
-        TreeNode left = sortedArrayToBST(low, mid-1);
+        TreeNode left = buildTree(low, mid-1);
         // build right child
-        TreeNode right = sortedArrayToBST(mid+1, high);
+        TreeNode right = buildTree(mid+1, high);
         root.left = left;
         root.right = right;
         return root;

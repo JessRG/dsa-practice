@@ -107,8 +107,15 @@ public class Test {
         /** End Test of Merge Two Sorted Lists **/
 
         /** Test of Convert Sorted Array to Binary Search Tree **/
-        int[] nums = new int[] {-10, -3, 0, 5, 9};
-        TreeNode.displayTree(lcList.sortedArrayToBST(nums));
+//        int[] nums = new int[] {-10, -3, 0, 5, 9};
+//        TreeNode.displayTree(lcList.sortedArrayToBST(nums));
         /** End Test of Convert Sorted Array to Binary Search Tree **/
+
+        /** Test of Valid Palindrome **/
+        String s = "A man, a plan, a canal: Panama";
+//        s = "race a car";
+        s = "0P";
+        System.out.println(lcList.isPalindrome(s));
+        /** End Test of Valid Palindrome **/
     }
 }
