@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
@@ -118,15 +120,33 @@ public class Test {
 //        System.out.println(lcList.isPalindrome(s));
         /** End Test of Valid Palindrome **/
 
+        /** Test of Two Strings **/
+        List<String> a = new ArrayList<>() {
+            {
+                add("ab");
+                add("cd");
+                add("ef");
+            }
+        };
+        List<String> b = new ArrayList<>() {
+            {
+                add("af");
+                add("ee");
+                add("ef");
+            }
+        };
+        lcList.commonSubstring(a, b);
+        /** End Test of Two Strings **/
+
         /** Test of Large Responses **/
-        try {
-            lcList.findLargeResponses();
-        } catch(IOException e) {
-            System.out.println(e.getMessage());
-        } catch(Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+//        try {
+//            lcList.findLargeResponses();
+//        } catch(IOException e) {
+//            System.out.println(e.getMessage());
+//        } catch(Exception e) {
+//            System.out.println(e.getMessage());
+//            e.printStackTrace();
+//        }
         /** End Test of Large Responses **/
     }
 }

@@ -344,6 +344,34 @@ public class LeetcodeList {
         return pascalT;
     }
 
+    // Two Strings
+    // Given two arrays of strings, determine whether corresponding elements contain a common substring.
+    // For each test, print the result on a new line, either YES if there is a common substring, or NO.
+    public void commonSubstring(List<String> a, List<String> b) {
+        // Write your code here
+        for(int i = 0; i < a.size(); i++) {
+            String strA = a.get(i);
+//            System.out.println(strA);
+            // create a hashmap to store the characters of the string(s) of list a
+            HashMap<Character, Integer> hmap = new HashMap<>();
+            for(int j = 0; j < strA.length(); j++) {
+                hmap.put(strA.charAt(j), hmap.get(strA.charAt(j)) == null ? 1 : hmap.get(strA.charAt(j)) + 1 );
+                // System.out.println(hmap.get(strA.charAt(j)) + 1);
+            }
+            String strB = b.get(i);
+//            System.out.println(strB);
+            boolean flag = false;
+            for(int j = 0; j < strB.length(); j++) {
+                if(hmap.containsKey(strB.charAt(j))) {
+                    // System.out.println(strB.charAt(j));
+                    flag = true;
+                }
+            }
+            System.out.println(flag ? "YES" : "NO");
+            flag = false;
+        }
+    }
+
     // Large Responses
     // You are given a log file with a list of GET requests delimited with double quotes and spaces.
     // A sample and the structure of the text file containing the log entries are given below.
