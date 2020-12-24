@@ -1,4 +1,4 @@
-import java.util.*;
+import java.io.IOException;
 
 public class Test {
     public static void main(String[] args) {
@@ -112,10 +112,21 @@ public class Test {
         /** End Test of Convert Sorted Array to Binary Search Tree **/
 
         /** Test of Valid Palindrome **/
-        String s = "A man, a plan, a canal: Panama";
-        s = "race a car";
-//        s = "0P";
-        System.out.println(lcList.isPalindrome(s));
+//        String s = "A man, a plan, a canal: Panama";
+//        s = "race a car";
+////        s = "0P";
+//        System.out.println(lcList.isPalindrome(s));
         /** End Test of Valid Palindrome **/
+
+        /** Test of Large Responses **/
+        try {
+            lcList.findLargeResponses();
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        /** End Test of Large Responses **/
     }
 }

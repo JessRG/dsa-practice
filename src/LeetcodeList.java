@@ -1,14 +1,19 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class LeetcodeList {
 
     // Declaring ArrayList object to help solve some problems
-    private ArrayList<Integer> tree;
-    private List<List<Integer>> pascalT;
+    private final ArrayList<Integer> tree;
+    private final List<List<Integer>> pascalT;
+    private final Scanner scan;
 
     LeetcodeList() {
         this.tree = new ArrayList<>();
         this.pascalT = new ArrayList<>();
+        scan = new Scanner(System.in);
     }
 
     // Two Sum
@@ -337,5 +342,63 @@ public class LeetcodeList {
     public List<List<Integer>> generate(int numRows) {
         // define the logic to generate pascal's triangle
         return pascalT;
+    }
+
+    // Large Responses
+    // You are given a log file with a list of GET requests delimited with double quotes and spaces.
+    // A sample and the structure of the text file containing the log entries are given below.
+    // Given a filename that denotes a text file in the current working directory. Create an output file with the name
+    // "bytes_" prefixed to the filename (bytes_filename) which stores the information about large responses.
+
+    // Write the following to the output file:
+    // 1. The first line must contain the number of requests that have more than 5000 bytes sent in their response.
+    // 2. The second line must contain the total sum of bytes sent by all responses sending more than 5000 bytes.
+    public void findLargeResponses() throws IOException {
+        // read the string filename
+        String filename;
+        filename = scan.nextLine();
+
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        StringBuilder sb = new StringBuilder();
+        String line;
+
+        // read lines from the file and append to the StringBuilder
+        while( (line = br.readLine()) != null ) {
+            sb.append(line + "\n");
+        }
+        // close BufferedReader
+        if (br != null) {
+            br.close();
+        }
+
+        // split the built StringBuilder
+        String [] split = sb.toString().replaceAll("([^\\d\\n][\\w.:/]*.)", "").split("\n");
+        int count = 0;
+        long bytes = 0;
+        for(String elem : split) {
+            long val = Long.parseLong(elem);
+            if(val > 5000L) {
+                count++;
+                bytes += val;
+            }
+        }
+//        System.out.printf("count: %d\nbytes: %d\n", count, bytes);
+
+        // Declare File object for the new output file
+        File file = new File("bytes_" + filename);
+
+        // This logic makes sure that the file gets created if it is not present
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        // Create BufferedWriter to write to the new output file
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        bw.write(String.format("%d\n%d", count, bytes));
+        System.out.println("File written successfully!");
+
+        // close BufferedWriter
+        if(bw != null) {
+            bw.close();
+        }
     }
 }
