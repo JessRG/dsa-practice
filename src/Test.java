@@ -121,21 +121,21 @@ public class Test {
         /** End Test of Valid Palindrome **/
 
         /** Test of Two Strings **/
-        List<String> a = new ArrayList<>() {
-            {
-                add("ab");
-                add("cd");
-                add("ef");
-            }
-        };
-        List<String> b = new ArrayList<>() {
-            {
-                add("af");
-                add("ee");
-                add("ef");
-            }
-        };
-        lcList.commonSubstring(a, b);
+//        List<String> a = new ArrayList<>() {
+//            {
+//                add("ab");
+//                add("cd");
+//                add("ef");
+//            }
+//        };
+//        List<String> b = new ArrayList<>() {
+//            {
+//                add("af");
+//                add("ee");
+//                add("ef");
+//            }
+//        };
+//        lcList.commonSubstring(a, b);
         /** End Test of Two Strings **/
 
         /** Test of Large Responses **/
@@ -148,5 +148,13 @@ public class Test {
 //            e.printStackTrace();
 //        }
         /** End Test of Large Responses **/
+
+        /** Test of First Unique Character in a String **/
+        String s = "leetcode";
+        s = "loveleetcode";
+        s = "cc";
+        s = "z";
+        System.out.println(lcList.firstUniqChar(s));
+        /** End Test of First Unique Character in a String **/
     }
 }

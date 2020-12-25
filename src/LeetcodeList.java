@@ -429,4 +429,28 @@ public class LeetcodeList {
             bw.close();
         }
     }
+
+    // First Unique Character in a String
+    // Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
+    public int firstUniqChar(String s) {
+        int idx = -1;
+        HashMap<Character, Integer> hmap = new HashMap<>();
+
+        for(int i = 0; i < s.length();i++) {
+            hmap.put(s.charAt(i), hmap.get(s.charAt(i)) == null ? 1 : hmap.get(s.charAt(i)) + 1);
+        }
+
+        for(int i = 0; i < s.length();i++) {
+            if (hmap.get(s.charAt(i)) == 1) {
+                idx = i;
+                break;
+            }
+        }
+
+//        for(Map.Entry kvPair : hmap.entrySet()) {
+//            System.out.printf("%s: %d\n", kvPair.getKey(), kvPair.getValue());
+//        }
+
+        return idx;
+    }
 }
