@@ -433,20 +433,26 @@ public class LeetcodeList {
     // First Unique Character in a String
     // Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
     public int firstUniqChar(String s) {
+        // index local variable to store the index of the unique character
         int idx = -1;
+        // Declare a hashmap to help solve this problem
         HashMap<Character, Integer> hmap = new HashMap<>();
 
+        // build hashmap by storing each character along with a count of that character within the string
         for(int i = 0; i < s.length();i++) {
             hmap.put(s.charAt(i), hmap.getOrDefault(s.charAt(i), 0) + 1);
         }
 
+        // loop through the string again to check if the character count is equal to 1 (unique)
         for(int i = 0; i < s.length();i++) {
+            // check if character is unique
             if (hmap.get(s.charAt(i)) == 1) {
+                // assign index of the current character then break the loop
                 idx = i;
                 break;
             }
         }
-
+        // return local idx variable
         return idx;
     }
 
