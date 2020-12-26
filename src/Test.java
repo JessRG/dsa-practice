@@ -151,9 +151,9 @@ public class Test {
 
         /** Test of First Unique Character in a String **/
         String s = "leetcode";
-        s = "loveleetcode";
-        s = "cc";
-        s = "z";
+//        s = "loveleetcode";
+//        s = "cc";
+//        s = "z";
         System.out.println(lcList.firstUniqChar(s));
         /** End Test of First Unique Character in a String **/
     }

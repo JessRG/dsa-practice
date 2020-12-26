@@ -437,7 +437,7 @@ public class LeetcodeList {
         HashMap<Character, Integer> hmap = new HashMap<>();
 
         for(int i = 0; i < s.length();i++) {
-            hmap.put(s.charAt(i), hmap.get(s.charAt(i)) == null ? 1 : hmap.get(s.charAt(i)) + 1);
+            hmap.put(s.charAt(i), hmap.getOrDefault(s.charAt(i), 0) + 1);
         }
 
         for(int i = 0; i < s.length();i++) {
@@ -447,10 +447,25 @@ public class LeetcodeList {
             }
         }
 
-//        for(Map.Entry kvPair : hmap.entrySet()) {
-//            System.out.printf("%s: %d\n", kvPair.getKey(), kvPair.getValue());
-//        }
-
         return idx;
+    }
+
+    // Shopper's Delight
+    // A shopaholic has to buy a pair of jeans, a pair of shoes, a skirt, and a top with budgeted dollars.
+    // Given the quantity of each product and the price per unit, determine how many options there are to buy all
+    // items, If required, all budgeted dollars can be spent.
+    // Example:
+    // priceOfJeans = [2, 3]
+    // priceOfShoes = [4]
+    // priceOfSkirts = [2,3]
+    // priceOfTops = [1.2]
+    // budget = 10
+    // The shopper must buy shoes for 4 dollars since there is only one option. This leaves 6 dollars to spend on the
+    // other 3 items. Combinations of prices paid for jeans, skirts, and tops respectively that add up to 6 dollars
+    // or less are [2,2,2],[2,2,1], [3,2,1], [2,3,1]
+    public int getNumberOfOptions(int[] priceOfJeans, int[] priceOfShoes, int [] priceOfSkirts, int[] priceOfTops, int budget) {
+        int opt = 0;
+        // Write logic here...
+        return opt;
     }
 }
