@@ -344,6 +344,23 @@ public class LeetcodeList {
         return pascalT;
     }
 
+    // Write a function that reverses a string. The input string is given as an array of characters char[].
+    // Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+    // You may assume all the characters consist of printable ascii characters.
+    public void reverseString(char[] s) {
+        int start = 0, end = s.length - 1;
+
+        while(start < end) {
+            // if start and end are not equal swap characters
+            char temp = s[start];
+            s[start] = s[end];
+            s[end] = temp;
+            start++;
+            end--;
+        }
+        System.out.println(Arrays.toString(s));
+    }
+
     // Two Strings
     // Given two arrays of strings, determine whether corresponding elements contain a common substring.
     // For each test, print the result on a new line, either YES if there is a common substring, or NO.

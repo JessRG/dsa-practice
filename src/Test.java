@@ -150,11 +150,17 @@ public class Test {
         /** End Test of Large Responses **/
 
         /** Test of First Unique Character in a String **/
-        String s = "leetcode";
-//        s = "loveleetcode";
-//        s = "cc";
-//        s = "z";
-        System.out.println(lcList.firstUniqChar(s));
+//        String s = "leetcode";
+////        s = "loveleetcode";
+////        s = "cc";
+////        s = "z";
+//        System.out.println(lcList.firstUniqChar(s));
         /** End Test of First Unique Character in a String **/
+
+        /** Test of Reverse String **/
+        char[] input = new char[] {'h','e','l','l','o'};
+        input = new char[] {'H','a','n','n','a', 'h'};
+        lcList.reverseString(input);
+        /** End Test of Reverse String **/
     }
 }
