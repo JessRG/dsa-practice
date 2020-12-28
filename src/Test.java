@@ -1,10 +1,22 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
         LeetcodeList lcList = new LeetcodeList();
+
+        /** selectionSort Test **/
+        int[] nums = new int[] {5,2,3,1};
+        System.out.println(Arrays.toString(lcList.sortArray(nums)));
+
+        /** bubbleSort Test **/
+        lcList.bubbleSort(new int[] {9,5,7,3,6,2,1});
+
+        /** MergeSort Test **/
+        nums = new int[] {4,9,7,6,5,3,1};
+        System.out.println(Arrays.toString(lcList.mergeSort(nums)));
 
         /** Test of Two Sum **/
 //        System.out.println(Arrays.toString(lcList.twoSum(new int[] {2,7,11,15}, 9)));
@@ -160,7 +172,7 @@ public class Test {
         /** Test of Reverse String **/
         char[] input = new char[] {'h','e','l','l','o'};
         input = new char[] {'H','a','n','n','a', 'h'};
-        lcList.reverseString(input);
+//        lcList.reverseString(input);
         /** End Test of Reverse String **/
     }
 }

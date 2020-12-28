@@ -16,6 +16,114 @@ public class LeetcodeList {
         scan = new Scanner(System.in);
     }
 
+    // selectionSort method
+    public int[] sortArray(int[] nums) {
+
+        // loop through nums
+        int idx = 0, smallest = -1;
+        for(int i = 0; i < nums.length; i++) {
+            idx = 0;
+            smallest = nums[i];
+            for(int j = i; j < nums.length; j++) {
+                if(nums[j] < smallest) {
+                    smallest = nums[j];
+                    idx = j;
+                }
+            }
+            if(smallest < nums[i]) {
+                int temp = nums[i];
+                nums[i] = smallest;
+                nums[idx] = temp;
+            }
+        }
+        return nums;
+    }
+
+    // bubbleSort method
+    public void bubbleSort(int[] nums) {
+        int n = nums.length;
+        boolean swapped;
+        do
+        {
+            swapped = false;
+            for (int i = 0; i < n-1; i++) {
+                if (nums[i] > nums[i+1]) {
+                    int temp = nums[i];
+                    nums[i] = nums[i+1];
+                    nums[i+1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped == true);
+
+        System.out.println(Arrays.toString(nums));
+    }
+
+    // mergeSort method
+    // Added this method to practice with using mergeSort
+    public int[] mergeSort(int[] nums) {
+        int n = nums.length;
+        int[] left;
+        int[] right;
+
+        // determine size of left and right array by number of array elements
+        if(n < 2) {
+            return nums;
+        } else if(n % 2 == 0) {
+            left = new int[n/2];
+            right = new int[n/2];
+        } else {
+            left = new int[n/2];
+            right = new int[n/2+1];
+        }
+
+        // fill in both the left and right arrays
+        for(int i = 0; i < n; i++) {
+            if(i < n/2) {
+                left[i] = nums[i];
+            } else {
+                right[i - n/2] = nums[i];
+            }
+        }
+
+        // recursively split and merge left and right arrays
+        left = mergeSort(left);
+        right = mergeSort(right);
+
+        // merge subarrays
+        return merge(left, right);
+    }
+
+    public int[] merge(int[] left, int[] right) {
+        // declare result array which is the size of left and right together
+        int [] res = new int[left.length + right.length];
+
+        int leftIdx = 0;
+        int rightIdx = 0;
+        int idx = 0;
+        // traverse through both left and right arrays and check which
+        // elements should be set to the front of the result array
+        while(leftIdx < left.length && rightIdx < right.length) {
+            if(left[leftIdx] < right[rightIdx]) {
+                res[idx++] = left[leftIdx++];
+            } else {
+                res[idx++] = right[rightIdx++];
+            }
+        }
+
+        // add leftover elements from left
+        while(leftIdx < left.length) {
+            res[idx++] = left[leftIdx++];
+        }
+
+        // add leftover elements from right
+        while(rightIdx < right.length) {
+            res[idx++] = right[rightIdx++];
+        }
+
+        return res;
+    }
+
     // Two Sum
     // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
     // You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -351,7 +459,7 @@ public class LeetcodeList {
         int start = 0, end = s.length - 1;
 
         while(start < end) {
-            // if start and end are not equal swap characters
+            // if start less than end swap characters
             char temp = s[start];
             s[start] = s[end];
             s[end] = temp;
