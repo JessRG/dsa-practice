@@ -9,14 +9,18 @@ public class Test {
 
         /** selectionSort Test **/
         int[] nums = new int[] {5,2,3,1};
-        System.out.println(Arrays.toString(lcList.sortArray(nums)));
+//        System.out.println(Arrays.toString(lcList.sortArray(nums)));
 
         /** bubbleSort Test **/
-        lcList.bubbleSort(new int[] {9,5,7,3,6,2,1});
+//        lcList.bubbleSort(new int[] {9,5,7,3,6,2,1});
 
         /** MergeSort Test **/
-        nums = new int[] {4,9,7,6,5,3,1};
-        System.out.println(Arrays.toString(lcList.mergeSort(nums)));
+//        nums = new int[] {4,9,7,6,5,3,1};
+//        System.out.println(Arrays.toString(lcList.mergeSort(nums)));
+
+        /** Binary Search Test **/
+        nums = new int[] {1,3,4,5,7,9,13,15,16,17,19};
+        System.out.println(lcList.binarySearch(17, nums, 0, nums.length));
 
         /** Test of Two Sum **/
 //        System.out.println(Arrays.toString(lcList.twoSum(new int[] {2,7,11,15}, 9)));

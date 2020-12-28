@@ -124,6 +124,24 @@ public class LeetcodeList {
         return res;
     }
 
+    // Binary Search method
+    public boolean binarySearch(int v, int[] nums, int low, int high) {
+        if(low > high) {
+            System.out.println("Not found");
+            return false;
+        }
+
+        int mid = (low + high) / 2;
+        if(v == nums[mid]) {
+            System.out.printf("Found it at %d!\n", mid);
+            return true;
+        } else if(v < nums[mid]) {
+            return binarySearch(v, nums, low, mid-1);
+        } else {
+            return binarySearch(v, nums, mid+1, high);
+        }
+    }
+
     // Two Sum
     // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
     // You may assume that each input would have exactly one solution, and you may not use the same element twice.
