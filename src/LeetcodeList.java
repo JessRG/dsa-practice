@@ -513,6 +513,13 @@ public class LeetcodeList {
         return idx;
     }
 
+    // Interval List Intersections
+    public int[][] intervalIntersection(int[][] A, int[][] B) {
+        List<int[]> res = new ArrayList<>();
+        // write logic for the interval intersection problem here...
+        return res.toArray(new int[res.size()][]);
+    }
+
     // Two Strings
     // Given two arrays of strings, determine whether corresponding elements contain a common substring.
     // For each test, print the result on a new line, either YES if there is a common substring, or NO.
