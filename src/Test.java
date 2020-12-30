@@ -136,35 +136,6 @@ public class Test {
 //        System.out.println(lcList.isPalindrome(s));
         /** End Test of Valid Palindrome **/
 
-        /** Test of Two Strings **/
-//        List<String> a = new ArrayList<>() {
-//            {
-//                add("ab");
-//                add("cd");
-//                add("ef");
-//            }
-//        };
-//        List<String> b = new ArrayList<>() {
-//            {
-//                add("af");
-//                add("ee");
-//                add("ef");
-//            }
-//        };
-//        lcList.commonSubstring(a, b);
-        /** End Test of Two Strings **/
-
-        /** Test of Large Responses **/
-//        try {
-//            lcList.findLargeResponses();
-//        } catch(IOException e) {
-//            System.out.println(e.getMessage());
-//        } catch(Exception e) {
-//            System.out.println(e.getMessage());
-//            e.printStackTrace();
-//        }
-        /** End Test of Large Responses **/
-
         /** Test of First Unique Character in a String **/
 //        String s = "leetcode";
 ////        s = "loveleetcode";
@@ -179,22 +150,29 @@ public class Test {
 //        lcList.reverseString(input);
         /** End Test of Reverse String **/
 
-        /** Test of Interval List Intersections **/
-//        int[][] a = new int[][] { {0,2}, {5,10}, {13,23}, {24,25} };
-//        int[][] b = new int[][] { {1,5}, {8,12}, {15,24}, {25,26} };
-//        lcList.intervalIntersection(a, b);
-        /** End Test of Interval List Intersections **/
-
         /** Test of Merge Intervals **/
-        int[][] intervals = new int[][] { {1,3}, {2,6}, {8,10}, {15,18} };
-        int[][] result = lcList.merge(intervals);
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("[ ");
-        for(int i = 0; i < result.length; i++) {
-            sb.append(String.format("%s%s", Arrays.toString(result[i]), i == result.length-1 ? " ]" : ","));
-        }
-        System.out.println(sb.toString());
+//        int[][] intervals = new int[][] { {1,3}, {2,6}, {8,10}, {15,18} };
+//        int[][] result = lcList.merge(intervals);
+//
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("[ ");
+//        for(int i = 0; i < result.length; i++) {
+//            sb.append(String.format("%s%s", Arrays.toString(result[i]), i == result.length-1 ? " ]" : ","));
+//        }
+//        System.out.println(sb.toString());
         /** End Test of Merge Intervals **/
+
+        /** Test of Interval List Intersections **/
+        int[][] a = new int[][] { {0,2}, {5,10}, {13,23}, {24,25} };
+        int[][] b = new int[][] { {1,5}, {8,12}, {15,24}, {25,26} };
+        int[][] intersections = lcList.intervalIntersection(a, b);
+
+        StringBuilder list = new StringBuilder();
+        list.append("[ ");
+        for(int i = 0; i < intersections.length; i++) {
+            list.append(String.format("%s%s", Arrays.toString(intersections[i]), i == intersections.length-1 ? " ]" : ","));
+        }
+        System.out.println(list.toString());
+        /** End Test of Interval List Intersections **/
     }
 }

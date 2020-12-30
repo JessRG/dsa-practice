@@ -463,13 +463,6 @@ public class LeetcodeList {
         return root;
     }
 
-    // Pascal's Triangle
-    // Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
-    public List<List<Integer>> generate(int numRows) {
-        // define the logic to generate pascal's triangle
-        return pascalT;
-    }
-
     // Write a function that reverses a string. The input string is given as an array of characters char[].
     // Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
     // You may assume all the characters consist of printable ascii characters.
@@ -485,6 +478,13 @@ public class LeetcodeList {
             end--;
         }
         System.out.println(Arrays.toString(s));
+    }
+
+    // Pascal's Triangle
+    // Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
+    public List<List<Integer>> generate(int numRows) {
+        // define the logic to generate pascal's triangle
+        return pascalT;
     }
 
     // First Unique Character in a String
@@ -511,13 +511,6 @@ public class LeetcodeList {
         }
         // return local idx variable
         return idx;
-    }
-
-    // Interval List Intersections
-    public int[][] intervalIntersection(int[][] A, int[][] B) {
-        List<int[]> res = new ArrayList<>();
-        // write logic for the interval intersection problem here...
-        return res.toArray(new int[res.size()][]);
     }
 
     // Merge Intervals
@@ -564,108 +557,45 @@ public class LeetcodeList {
         return merge.toArray(new int[merge.size()][]);
     }
 
-    // Two Strings
-    // Given two arrays of strings, determine whether corresponding elements contain a common substring.
-    // For each test, print the result on a new line, either YES if there is a common substring, or NO.
-    public void commonSubstring(List<String> a, List<String> b) {
-        // Write your code here
-        for(int i = 0; i < a.size(); i++) {
-            String strA = a.get(i);
-//            System.out.println(strA);
-            // create a hashmap to store the characters of the string(s) of list a
-            HashMap<Character, Integer> hmap = new HashMap<>();
-            for(int j = 0; j < strA.length(); j++) {
-                hmap.put(strA.charAt(j), hmap.get(strA.charAt(j)) == null ? 1 : hmap.get(strA.charAt(j)) + 1 );
-                // System.out.println(hmap.get(strA.charAt(j)) + 1);
+    // Interval List Intersections
+    public int[][] intervalIntersection(int[][] A, int[][] B) {
+
+//        int[][] a = new int[][] { {0,2}, {5,10}, {13,23}, {24,25} };
+//        int[][] b = new int[][] { {1,5}, {8,12}, {15,24}, {25,26} };
+
+        // List to store the interval intersections
+        List<int[]> intersections = new ArrayList<>();
+
+        // set the start and end
+        // set two int variables as pointers: one for A and one for B
+        int a = 0;
+        int b = 0;
+
+        // iteration through the intervals --> while loop
+        while(a < A.length && b < B.length) {
+            int startA = A[a][0], endA = A[a][1];
+//            System.out.println("startA: " + startA+ " endA: " + endA);
+            int startB = B[b][0], endB = B[b][1];
+//            System.out.println("startB: " + startB+ " endB: " + endB);
+
+            // current values
+            // maximum between both A and B start of intervals
+            // minimum between both A and B end of intervals
+            int start = Math.max(startA, startB);
+            int end = Math.min(endA, endB);
+
+            // compare current start with current end
+            if(start <= end) {
+                // add the intersection interval of A and B intervals to the list
+                intersections.add(new int[] {start, end});
             }
-            String strB = b.get(i);
-//            System.out.println(strB);
-            boolean flag = false;
-            for(int j = 0; j < strB.length(); j++) {
-                if(hmap.containsKey(strB.charAt(j))) {
-                    // System.out.println(strB.charAt(j));
-                    flag = true;
-                }
-            }
-            System.out.println(flag ? "YES" : "NO");
-            flag = false;
-        }
-    }
 
-    // Large Responses
-    // You are given a log file with a list of GET requests delimited with double quotes and spaces.
-    // A sample and the structure of the text file containing the log entries are given below.
-    // Given a filename that denotes a text file in the current working directory. Create an output file with the name
-    // "bytes_" prefixed to the filename (bytes_filename) which stores the information about large responses.
-
-    // Write the following to the output file:
-    // 1. The first line must contain the number of requests that have more than 5000 bytes sent in their response.
-    // 2. The second line must contain the total sum of bytes sent by all responses sending more than 5000 bytes.
-    public void findLargeResponses() throws IOException {
-        // read the string filename
-        String filename;
-        filename = scan.nextLine();
-
-        BufferedReader br = new BufferedReader(new FileReader(filename));
-        StringBuilder sb = new StringBuilder();
-        String line;
-
-        // read lines from the file and append to the StringBuilder
-        while( (line = br.readLine()) != null ) {
-            sb.append(line + "\n");
-        }
-        // close BufferedReader
-        if (br != null) {
-            br.close();
+            // increment either a or b to the next interval (if endA is less than endB move to )
+            if(endA < endB) a++;
+            else b++;
         }
 
-        // split the built StringBuilder
-        String [] split = sb.toString().replaceAll("([^\\d\\n][\\w.:/]*.)", "").split("\n");
-        int count = 0;
-        long bytes = 0;
-        for(String elem : split) {
-            long val = Long.parseLong(elem);
-            if(val > 5000L) {
-                count++;
-                bytes += val;
-            }
-        }
-//        System.out.printf("count: %d\nbytes: %d\n", count, bytes);
-
-        // Declare File object for the new output file
-        File file = new File("bytes_" + filename);
-
-        // This logic makes sure that the file gets created if it is not present
-        if (!file.exists()) {
-            file.createNewFile();
-        }
-        // Create BufferedWriter to write to the new output file
-        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-        bw.write(String.format("%d\n%d", count, bytes));
-        System.out.println("File written successfully!");
-
-        // close BufferedWriter
-        if(bw != null) {
-            bw.close();
-        }
-    }
-
-    // Shopper's Delight
-    // A shopaholic has to buy a pair of jeans, a pair of shoes, a skirt, and a top with budgeted dollars.
-    // Given the quantity of each product and the price per unit, determine how many options there are to buy all
-    // items, If required, all budgeted dollars can be spent.
-    // Example:
-    // priceOfJeans = [2, 3]
-    // priceOfShoes = [4]
-    // priceOfSkirts = [2,3]
-    // priceOfTops = [1.2]
-    // budget = 10
-    // The shopper must buy shoes for 4 dollars since there is only one option. This leaves 6 dollars to spend on the
-    // other 3 items. Combinations of prices paid for jeans, skirts, and tops respectively that add up to 6 dollars
-    // or less are [2,2,2],[2,2,1], [3,2,1], [2,3,1]
-    public int getNumberOfOptions(int[] priceOfJeans, int[] priceOfShoes, int [] priceOfSkirts, int[] priceOfTops, int budget) {
-        int opt = 0;
-        // Write logic here...
-        return opt;
+        // return intersections
+        return intersections.toArray(new int[intersections.size()][]);
     }
 }
