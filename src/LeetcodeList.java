@@ -520,6 +520,50 @@ public class LeetcodeList {
         return res.toArray(new int[res.size()][]);
     }
 
+    // Merge Intervals
+    // Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals,
+    // and return an array of the non-overlapping intervals that cover all the intervals in the input.
+    public int[][] merge(int[][] intervals) {
+        // check intervals length
+        if(intervals.length == 0) return new int[0][0];
+
+        // Declare ArrayList to store the combined intervals
+        List<int[]> merge = new ArrayList<>();
+
+        // sort the intervals before merging/combining overlapping intervals (using lambda expression to handle the comparator)
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+
+        // store the start and end of the first interval
+        int start = intervals[0][0];
+        int end = intervals[0][1];
+
+        // iterate through the intervals in the intervals array
+        for(int i = 1; i < intervals.length; i++) {
+            // write logic for each iteration
+            // set currStart and currEnd to the interval currently being iterated through
+            // declare current start and end variable for each interval within the array
+            int currStart = intervals[i][0];
+            int currEnd = intervals[i][1];
+
+            // check if the current start is less than or equal to the end of the previous interval
+            if(currStart <= end) {
+                // don't update the start
+                // update the end (use max method to find the higher value of first interval end and current interval end)
+                end = Math.max(currEnd, end);
+            } else {
+                // add the merged interval to the list
+                merge.add(new int[] {start, end});
+
+                // update(reset to current) start and end
+                start = currStart;
+                end = currEnd;
+            }
+        }
+        // need to add in the last interval to the list
+        merge.add(new int[] {start, end});
+        return merge.toArray(new int[merge.size()][]);
+    }
+
     // Two Strings
     // Given two arrays of strings, determine whether corresponding elements contain a common substring.
     // For each test, print the result on a new line, either YES if there is a common substring, or NO.

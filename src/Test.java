@@ -19,8 +19,8 @@ public class Test {
 //        System.out.println(Arrays.toString(lcList.mergeSort(nums)));
 
         /** Binary Search Test **/
-        nums = new int[] {1,3,4,5,7,9,13,15,16,17,19};
-        System.out.println(lcList.binarySearch(17, nums, 0, nums.length));
+//        nums = new int[] {1,3,4,5,7,9,13,15,16,17,19};
+//        System.out.println(lcList.binarySearch(17, nums, 0, nums.length));
 
         /** Test of Two Sum **/
 //        System.out.println(Arrays.toString(lcList.twoSum(new int[] {2,7,11,15}, 9)));
@@ -180,10 +180,21 @@ public class Test {
         /** End Test of Reverse String **/
 
         /** Test of Interval List Intersections **/
-        int[][] a = new int[][] { {0,2}, {5,10}, {13,23}, {24,25} };
-        int[][] b = new int[][] { {1,5}, {8,12}, {15,24}, {25,26} };
-        lcList.intervalIntersection(a, b);
+//        int[][] a = new int[][] { {0,2}, {5,10}, {13,23}, {24,25} };
+//        int[][] b = new int[][] { {1,5}, {8,12}, {15,24}, {25,26} };
+//        lcList.intervalIntersection(a, b);
         /** End Test of Interval List Intersections **/
 
+        /** Test of Merge Intervals **/
+        int[][] intervals = new int[][] { {1,3}, {2,6}, {8,10}, {15,18} };
+        int[][] result = lcList.merge(intervals);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        for(int i = 0; i < result.length; i++) {
+            sb.append(String.format("%s%s", Arrays.toString(result[i]), i == result.length-1 ? " ]" : ","));
+        }
+        System.out.println(sb.toString());
+        /** End Test of Merge Intervals **/
     }
 }
