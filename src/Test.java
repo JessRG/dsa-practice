@@ -163,16 +163,21 @@ public class Test {
         /** End Test of Merge Intervals **/
 
         /** Test of Interval List Intersections **/
-        int[][] a = new int[][] { {0,2}, {5,10}, {13,23}, {24,25} };
-        int[][] b = new int[][] { {1,5}, {8,12}, {15,24}, {25,26} };
-        int[][] intersections = lcList.intervalIntersection(a, b);
-
-        StringBuilder list = new StringBuilder();
-        list.append("[ ");
-        for(int i = 0; i < intersections.length; i++) {
-            list.append(String.format("%s%s", Arrays.toString(intersections[i]), i == intersections.length-1 ? " ]" : ","));
-        }
-        System.out.println(list.toString());
+//        int[][] a = new int[][] { {0,2}, {5,10}, {13,23}, {24,25} };
+//        int[][] b = new int[][] { {1,5}, {8,12}, {15,24}, {25,26} };
+//        int[][] intersections = lcList.intervalIntersection(a, b);
+//
+//        StringBuilder list = new StringBuilder();
+//        list.append("[ ");
+//        for(int i = 0; i < intersections.length; i++) {
+//            list.append(String.format("%s%s", Arrays.toString(intersections[i]), i == intersections.length-1 ? " ]" : ","));
+//        }
+//        System.out.println(list.toString());
         /** End Test of Interval List Intersections **/
+
+        /** Test of Pairs of Songs With Total Durations Divisible by 60 **/
+        int[] t = new int[] { 30, 20, 150, 100, 40 };
+        System.out.println(lcList.numPairsDivisibleBy60(t));
+        /** End Test of Pairs of Songs With Total Durations Divisible by 60 **/
     }
 }
