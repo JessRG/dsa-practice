@@ -639,4 +639,32 @@ public class LeetcodeList {
         }
         return pairs;
     }
+
+    // 3Sum
+    // Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?
+    // Find all unique triplets in the array which gives the sum of zero.
+    // Notice that the solution set must not contain duplicate triplets.
+    public List<List<Integer>> threeSum(int[] nums) {
+
+        // List of Lists to store each unique triplets in the array that gives the sum of zero
+        List<List<Integer>> list = new LinkedList();
+
+        // Sort the nums array
+        Arrays.sort(nums);
+
+        // Iterate through array of nums
+        for(int i = 0; i < nums.length-2; i++) {
+            if(i == 0 || (i > 0 && nums[i] != nums[i-1]) ) {
+                int low = i+1;
+                int high = nums.length-1;
+                int sum = 0 - nums[i];
+
+                while(low < high) {
+                    // need to write the logic/conditions for finding the set of numbers that give the sum of zero
+                }
+            }
+        }
+
+        return list;
+    }
 }
