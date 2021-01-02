@@ -660,7 +660,19 @@ public class LeetcodeList {
                 int sum = 0 - nums[i];
 
                 while(low < high) {
-                    // need to write the logic/conditions for finding the set of numbers that give the sum of zero
+                    // if a set of triplets are found and to the list
+                    if(nums[low] + nums[high] == sum) {
+                        list.add(Arrays.asList(nums[i], nums[low], nums[high]));
+
+                        while(low < high && nums[low] == nums[low+1]) low++;
+                        while(low < high && nums[high] == nums[high-1]) high--;
+                        low++;
+                        high--;
+                    } else if(nums[low] + nums[high] > sum) {
+                        high--;
+                    } else {
+                        low++;
+                    }
                 }
             }
         }

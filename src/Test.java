@@ -176,8 +176,14 @@ public class Test {
         /** End Test of Interval List Intersections **/
 
         /** Test of Pairs of Songs With Total Durations Divisible by 60 **/
-        int[] t = new int[] { 30, 20, 150, 100, 40 };
-        System.out.println(lcList.numPairsDivisibleBy60(t));
+//        int[] t = new int[] { 30, 20, 150, 100, 40 };
+//        System.out.println(lcList.numPairsDivisibleBy60(t));
         /** End Test of Pairs of Songs With Total Durations Divisible by 60 **/
+
+        /** Test of 3Sum **/
+        nums = new int[] { -1,0,1,2,-1,-4 };
+        List<List<Integer>> ls = lcList.threeSum(nums);
+        System.out.println(Arrays.asList(ls));
+        /** End Test of 3Sum **/
     }
 }
