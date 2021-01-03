@@ -180,6 +180,10 @@ public class Test {
 //        System.out.println(lcList.numPairsDivisibleBy60(t));
         /** End Test of Pairs of Songs With Total Durations Divisible by 60 **/
 
+        /** Test of Count and Say **/
+        System.out.println(lcList.countAndSay(4));
+        /** End Test of Count and Say **/
+
         /** Test of 3Sum **/
         nums = new int[] { -1,0,1,2,-1,-4 };
         List<List<Integer>> ls = lcList.threeSum(nums);
