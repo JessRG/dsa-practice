@@ -181,13 +181,22 @@ public class Test {
         /** End Test of Pairs of Songs With Total Durations Divisible by 60 **/
 
         /** Test of Count and Say **/
-        System.out.println(lcList.countAndSay(4));
+//        System.out.println(lcList.countAndSay(4));
         /** End Test of Count and Say **/
 
         /** Test of 3Sum **/
-        nums = new int[] { -1,0,1,2,-1,-4 };
-        List<List<Integer>> ls = lcList.threeSum(nums);
-        System.out.println(Arrays.asList(ls));
+//        nums = new int[] { -1,0,1,2,-1,-4 };
+//        List<List<Integer>> ls = lcList.threeSum(nums);
+//        System.out.println(Arrays.asList(ls));
         /** End Test of 3Sum **/
+
+        /** Test of Plus One **/
+        int[] digits = new int[] { 1,2,3 };
+//        int[] result = lcList.plusOne(digits);
+
+        for(int e : lcList.plusOne(digits)) {
+            System.out.print(e + " ");
+        }
+        /** End Test of Plus One **/
     }
 }

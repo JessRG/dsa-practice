@@ -666,17 +666,14 @@ public class LeetcodeList {
             s = result.toString();
             --n;
         }
-
         return s;
     }
-
 
     // 3Sum
     // Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?
     // Find all unique triplets in the array which gives the sum of zero.
     // Notice that the solution set must not contain duplicate triplets.
     public List<List<Integer>> threeSum(int[] nums) {
-
         // List of Lists to store each unique triplets in the array that gives the sum of zero
         List<List<Integer>> list = new LinkedList();
 
@@ -709,5 +706,23 @@ public class LeetcodeList {
         }
 
         return list;
+    }
+
+    // Plus One
+    // Given a non-empty array of decimal digits representing a non-negative integer, increment one to the integer.
+    // The digits are stored such that the most significant digit is at the head of the list, and each element in the array contains a single digit.
+    // You may assume the integer does not contain any leading zero, except the number 0 itself.
+    public int[] plusOne(int[] digits) {
+        int n = digits.length;
+        for(int i = n-1; i >= 0; i--) {
+            if(digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
+            digits[i] = 0;
+        }
+        int[] newNum = new int[n+1];
+        newNum[0] = 1;
+        return newNum;
     }
 }
