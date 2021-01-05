@@ -191,12 +191,18 @@ public class Test {
         /** End Test of 3Sum **/
 
         /** Test of Plus One **/
-        int[] digits = new int[] { 1,2,3 };
-//        int[] result = lcList.plusOne(digits);
+//        int[] digits = new int[] { 1,2,3 };
+////        int[] result = lcList.plusOne(digits);
+//
+//        for(int e : lcList.plusOne(digits)) {
+//            System.out.print(e + " ");
+//        }
+        /** End Test of Plus One **/
 
-        for(int e : lcList.plusOne(digits)) {
-            System.out.print(e + " ");
-        }
+        /** Test of Plus One **/
+        nums = new int[] { 2,3,-2,4 };
+        int result = lcList.maxProduct(nums);
+        System.out.println(result);
         /** End Test of Plus One **/
     }
 }
