@@ -725,4 +725,36 @@ public class LeetcodeList {
         newNum[0] = 1;
         return newNum;
     }
+
+    // Maximum Product Subarray
+    // Given an integer array nums, find the contiguous subarray within an array (containing at least one number)
+    // which has the largest product.
+    public int maxProduct(int[] nums) {
+
+        // handle edge case if nums parameter is empty
+        if(nums.length == 0) return -1;
+
+        // Declare three variables
+        int currentMax = nums[0]; // currentMax to help keep track of the max product
+        int currentMin = nums[0]; // currentMin to help keep track of the product of negative values
+        int totalMax = nums[0]; // totalMax to store the highest contiguous product
+
+        for(int i = 1; i < nums.length; i++) {
+            // Assign a temp variable to the currentMax to be used for minimum calculation
+            int temp = currentMax;
+            // Set the current max product between currentMax * current element, currentMin * current element
+            // or current element (will continue contiguous subarray or begin a new subarray)
+            currentMax = Math.max(Math.max(currentMax * nums[i], currentMin * nums[i]), nums[i]);
+
+            // assign the most minimum product to help account for the product of negative numbers with currentMax
+            currentMin = Math.min(Math.min(temp * nums[i], currentMin * nums[i]), nums[i]);
+
+            // Set the totalMax to the maximum contiguous subarray value
+            if(currentMax > totalMax) {
+                totalMax = currentMax;
+            }
+        }
+
+        return totalMax;
+    }
 }
