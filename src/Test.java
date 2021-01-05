@@ -199,10 +199,16 @@ public class Test {
 //        }
         /** End Test of Plus One **/
 
-        /** Test of Plus One **/
-        nums = new int[] { 2,3,-2,4 };
-        int result = lcList.maxProduct(nums);
-        System.out.println(result);
-        /** End Test of Plus One **/
+        /** Test of Maximum Subarray **/
+        nums = new int[] { -2,1,-3,4,-1,2,1,-5,4 };
+        int res = lcList.maxSubArray(nums);
+        System.out.println(res);
+        /** End Test of Maximum Subarray **/
+
+        /** Test of Maximum Product Subarray **/
+//        nums = new int[] { 2,3,-2,4 };
+//        int res = lcList.maxProduct(nums);
+//        System.out.println(res);
+        /** End Test of Maximum Product Subarray **/
     }
 }
