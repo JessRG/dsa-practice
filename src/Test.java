@@ -200,7 +200,7 @@ public class Test {
         /** End Test of Plus One **/
 
         /** Test of Maximum Subarray **/
-        nums = new int[] { 3,0,1 };
+        nums = new int[] { 3,2,1 };
         nums = new int[] { 0,1 };
         nums = new int[] { 9,6,4,2,3,5,7,0,1 };
         int res = lcList.missingNumber(nums);

@@ -730,24 +730,48 @@ public class LeetcodeList {
     // Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
     // Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
     public int missingNumber(int[] nums) {
-        // store the length of the nums array
+
+        /** My First Solution */
+//        // store the length of the nums array
+//        int n = nums.length;
+//        int missingNumber = nums[0];
+//
+//        // use a hashset to store all the values of nums
+//        Set<Integer> set = new HashSet<>();
+//        for(Integer elem:nums) {
+//            set.add(elem);
+//        }
+//
+//        // iterate to find the value that is missing
+//        for(int i = 0; i <= n; i++) {
+//            if (!set.contains(i)) {
+//                missingNumber = i;
+//                break;
+//            }
+//        }
+//        return missingNumber;
+
+        /** Improved Solution */
         int n = nums.length;
-        int missingNumber = nums[0];
+        // store the series equation (closed formula) or the formula for sum of consecutive numbers
+        // use this to help find the missing number
+        int totalSum = n * (n + 1) / 2;
+        // accumulator to store the sum of the nums array
+        int actualSum = 0;
 
-        // use a hashset to store all the values of nums
-        Set<Integer> set = new HashSet<>();
-        for(Integer elem:nums) {
-            set.add(elem);
+        // iterate through nums array and calculate the sum
+        for(int i = 0; i < n; i++) {
+            // calculate the sum of nums array
+            actualSum += nums[i];
         }
 
-        // iterate to find the value that is missing
-        for(int i = 0; i <= n; i++) {
-            if (!set.contains(i)) {
-                missingNumber = i;
-                break;
-            }
+        // check if formula result is not equal to the sum of nums (if they are equal return 0)
+        if(totalSum != actualSum) {
+            // return the difference between the formula result and sum of nums (the missing number)
+            return Math.abs(totalSum - actualSum);
+        } else {
+            return 0;
         }
-        return missingNumber;
     }
 
     // Maximum Subarray
