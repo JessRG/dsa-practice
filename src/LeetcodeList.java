@@ -726,6 +726,30 @@ public class LeetcodeList {
         return newNum;
     }
 
+    // Missing Number
+    // Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+    // Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
+    public int missingNumber(int[] nums) {
+        // store the length of the nums array
+        int n = nums.length;
+        int missingNumber = nums[0];
+
+        // use a hashset to store all the values of nums
+        Set<Integer> set = new HashSet<>();
+        for(Integer elem:nums) {
+            set.add(elem);
+        }
+
+        // iterate to find the value that is missing
+        for(int i = 0; i <= n; i++) {
+            if (!set.contains(i)) {
+                missingNumber = i;
+                break;
+            }
+        }
+        return missingNumber;
+    }
+
     // Maximum Subarray
     // Given an integer array nums, find the contiguous subarray (containing at least one number) which has
     // the largest sum and return its sum.

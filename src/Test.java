@@ -200,9 +200,17 @@ public class Test {
         /** End Test of Plus One **/
 
         /** Test of Maximum Subarray **/
-        nums = new int[] { -2,1,-3,4,-1,2,1,-5,4 };
-        int res = lcList.maxSubArray(nums);
+        nums = new int[] { 3,0,1 };
+        nums = new int[] { 0,1 };
+        nums = new int[] { 9,6,4,2,3,5,7,0,1 };
+        int res = lcList.missingNumber(nums);
         System.out.println(res);
+        /** End Test of Maximum Subarray **/
+
+        /** Test of Maximum Subarray **/
+//        nums = new int[] { -2,1,-3,4,-1,2,1,-5,4 };
+//        int res = lcList.maxSubArray(nums);
+//        System.out.println(res);
         /** End Test of Maximum Subarray **/
 
         /** Test of Maximum Product Subarray **/
