@@ -751,27 +751,89 @@ public class LeetcodeList {
 //        }
 //        return missingNumber;
 
-        /** Improved Solution */
+        /** Cyclic Sort solution (can be used to solve a few other problems) */
+        // store the length of nums array
         int n = nums.length;
-        // store the series equation (closed formula) or the formula for sum of consecutive numbers
-        // use this to help find the missing number
-        int totalSum = n * (n + 1) / 2;
-        // accumulator to store the sum of the nums array
-        int actualSum = 0;
-
-        // iterate through nums array and calculate the sum
-        for(int i = 0; i < n; i++) {
-            // calculate the sum of nums array
-            actualSum += nums[i];
+        int i = 0;
+        while(i < n) {
+            // check if current element is not equal to its index position and is less than nums length
+            if(nums[i] != i && nums[i] < n) {
+                // store the current element value (index position in array where it should be)
+                int j = nums[i];
+                // swap current element value with whatever element value is at position j
+                swap(nums, i, j);
+            } else {
+                // pre-increment i if current element value is equal to the index position
+                 ++i;
+            }
         }
-
-        // check if formula result is not equal to the sum of nums (if they are equal return 0)
-        if(totalSum != actualSum) {
-            // return the difference between the formula result and sum of nums (the missing number)
-            return Math.abs(totalSum - actualSum);
-        } else {
-            return 0;
+        // check array to find the missing value
+        for(int j = 0; j < n; j++){
+            if(nums[j] != j){
+                return j;
+            }
         }
+        // if for loop completes return the nums array length
+        return n;
+
+        /** Improved Solution */
+//        int n = nums.length;
+//        // store the series equation (closed formula) or the formula for sum of consecutive numbers
+//        // use this to help find the missing number
+//        int totalSum = n * (n + 1) / 2;
+//        // accumulator to store the sum of the nums array
+//        int actualSum = 0;
+//
+//        // iterate through nums array and calculate the sum
+//        for(int i = 0; i < n; i++) {
+//            // calculate the sum of nums array
+//            actualSum += nums[i];
+//        }
+//
+//        // check if formula result is not equal to the sum of nums (if they are equal return 0)
+//        if(totalSum != actualSum) {
+//            // return the difference between the formula result and sum of nums (the missing number)
+//            return Math.abs(totalSum - actualSum);
+//        } else {
+//            return 0;
+//        }
+    }
+
+    // swap function to swap two element values within an array
+    public void swap(int[] arr, int i, int j) {
+        int temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
+
+    // Sqrt(x)
+    // Given a non-negative integer x, compute and return the square root of x.
+    // Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.
+    public int mySqrt(int x) {
+        /** Math class square root method */
+        // return (int) Math.sqrt((double) x);
+
+        /** Binary Search Solution */
+        int low = 1;
+        int high = x;
+
+        while(low <= high) {
+            // calculate the mid value
+            long mid = low + (high - low) / 2;
+//            System.out.println(mid);
+
+            // check if mid is the square root
+            if(mid * mid == x) {
+                return (int) mid;
+            } else if(mid * mid > x) {
+                // if mid squared is greater set high equal to mid value minus 1
+                high = (int) mid-1;
+            } else {
+                // if mid squared is less than set low equal to mid value plus 1
+                low = (int) mid+1;
+            }
+        }
+        return high;
     }
 
     // Maximum Subarray

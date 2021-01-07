@@ -199,13 +199,19 @@ public class Test {
 //        }
         /** End Test of Plus One **/
 
-        /** Test of Maximum Subarray **/
-        nums = new int[] { 3,2,1 };
-        nums = new int[] { 0,1 };
-        nums = new int[] { 9,6,4,2,3,5,7,0,1 };
-        int res = lcList.missingNumber(nums);
-        System.out.println(res);
-        /** End Test of Maximum Subarray **/
+        /** Test of Missing Number **/
+//        nums = new int[] { 3,2,1 };
+//        nums = new int[] { 0,1 };
+//        nums = new int[] { 9,6,4,2,3,5,7,0,1 };
+//        int res = lcList.missingNumber(nums);
+//        System.out.println(res);
+        /** End Test of Missing Number **/
+
+        /** Test of Missing Number **/
+        int num = 64;
+        int res = lcList.mySqrt(num);
+        System.out.println("result: " + res);
+        /** End Test of Missing Number **/
 
         /** Test of Maximum Subarray **/
 //        nums = new int[] { -2,1,-3,4,-1,2,1,-5,4 };
