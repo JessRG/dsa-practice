@@ -207,11 +207,11 @@ public class Test {
 //        System.out.println(res);
         /** End Test of Missing Number **/
 
-        /** Test of Missing Number **/
-        int num = 64;
-        int res = lcList.mySqrt(num);
-        System.out.println("result: " + res);
-        /** End Test of Missing Number **/
+        /** Test of Sqrt() **/
+//        int num = 64;
+//        int res = lcList.mySqrt(num);
+//        System.out.println("result: " + res);
+        /** End Test of Sqrt() **/
 
         /** Test of Maximum Subarray **/
 //        nums = new int[] { -2,1,-3,4,-1,2,1,-5,4 };
@@ -224,5 +224,12 @@ public class Test {
 //        int res = lcList.maxProduct(nums);
 //        System.out.println(res);
         /** End Test of Maximum Product Subarray **/
+
+        /** Test of Binary Tree Inorder Traversal **/
+//        [1,null,2,3]
+        TreeNode tree = new TreeNode(1, null, new TreeNode(2));
+        tree.right.left = new TreeNode(3);
+        System.out.println(Arrays.asList(lcList.inorderTraversal(tree)));
+        /** End Test of Binary Tree Inorder Traversal **/
     }
 }
