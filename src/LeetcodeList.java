@@ -928,4 +928,37 @@ public class LeetcodeList {
         }
         return result;
     }
+
+    // Symmetric Tree
+    // Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+    public boolean isSymmetric(TreeNode root) {
+
+        // Declare a queue to store the mirrored nodes
+        Queue<TreeNode> q = new LinkedList<>();
+        // add the root node twice initially
+        q.add(root);
+        q.add(root);
+
+        // loop through the tree to check for symmetry
+        while(!q.isEmpty()) {
+            // declare local TreeNode objects (pointers) to reference the nodes from the queue
+            TreeNode t1 = q.poll();
+            TreeNode t2 = q.poll();
+
+            // check if the tree1 node and tree2 node are null
+            if(t1 == null && t2 == null) continue;
+            // check if either t1 or t2 is null
+            if(t1 == null || t2 == null) return false;
+            // if two node values are equal
+            if(t1.val != t2.val) return false;
+
+            // add left subtree's root node and right subtree's root node
+            q.add(t1.left);
+            q.add(t2.right);
+            // add left subtree's right child and right subtree's left child node
+            q.add(t1.right);
+            q.add(t2.left);
+        }
+        return true;
+    }
 }

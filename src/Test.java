@@ -227,9 +227,22 @@ public class Test {
 
         /** Test of Binary Tree Inorder Traversal **/
 //        [1,null,2,3]
-        TreeNode tree = new TreeNode(1, null, new TreeNode(2));
-        tree.right.left = new TreeNode(3);
-        System.out.println(Arrays.asList(lcList.inorderTraversal(tree)));
+//        TreeNode tree = new TreeNode(1, null, new TreeNode(2));
+//        tree.right.left = new TreeNode(3);
+//        System.out.println(Arrays.asList(lcList.inorderTraversal(tree)));
         /** End Test of Binary Tree Inorder Traversal **/
+
+        /** Test of Symmetric Tree **/
+        TreeNode tree = new TreeNode(1, new TreeNode(2), new TreeNode(2));
+        tree.left.left = new TreeNode(3);
+        tree.left.right = new TreeNode(4);
+        tree.right.left = new TreeNode(4);
+        tree.right.right = new TreeNode(3);
+
+        tree = new TreeNode(1, new TreeNode(2), new TreeNode(2));
+        tree.left.right = new TreeNode(3);
+        tree.right.right = new TreeNode(3);
+        System.out.println(lcList.isSymmetric(tree));
+        /** End Test of Symmetric Tree **/
     }
 }
