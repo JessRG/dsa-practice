@@ -966,8 +966,14 @@ public class LeetcodeList {
     }
 
     public boolean testSymmetry(TreeNode t1, TreeNode t2) {
+        // check if the tree1 node and tree2 node are null
         if(t1 == null && t2 == null) return true;
+        // check if either t1 or t2 is null
         if(t1 == null || t2 == null) return false;
+        // if the node values are equal
+        // test if the left subtree's left node(s) and right subtree's right node(s) mirror each other
+        // then check if the left subtree's (each of it's subtrees) right node(s)
+        // and the right subtree's (each of it's subtrees) left node(s) mirror each other
         return (t1.val == t2.val)
                 && testSymmetry(t1.left, t2.right)
                 && testSymmetry(t1.right, t2.left);
