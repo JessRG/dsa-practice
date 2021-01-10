@@ -239,9 +239,9 @@ public class Test {
         tree.right.left = new TreeNode(4);
         tree.right.right = new TreeNode(3);
 
-        tree = new TreeNode(1, new TreeNode(2), new TreeNode(2));
-        tree.left.right = new TreeNode(3);
-        tree.right.right = new TreeNode(3);
+//        tree = new TreeNode(1, new TreeNode(2), new TreeNode(2));
+//        tree.left.right = new TreeNode(3);
+//        tree.right.right = new TreeNode(3);
         System.out.println(lcList.isSymmetric(tree));
         /** End Test of Symmetric Tree **/
     }
