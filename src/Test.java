@@ -10,17 +10,21 @@ public class Test {
         /** selectionSort Test **/
         int[] nums = new int[] {5,2,3,1};
 //        System.out.println(Arrays.toString(lcList.sortArray(nums)));
+        /** End of selectionSort Test **/
 
         /** bubbleSort Test **/
 //        lcList.bubbleSort(new int[] {9,5,7,3,6,2,1});
+        /** End of bubbleSort Test **/
 
         /** MergeSort Test **/
 //        nums = new int[] {4,9,7,6,5,3,1};
 //        System.out.println(Arrays.toString(lcList.mergeSort(nums)));
+        /** End of MergeSort Test **/
 
         /** Binary Search Test **/
 //        nums = new int[] {1,3,4,5,7,9,13,15,16,17,19};
 //        System.out.println(lcList.binarySearch(17, nums, 0, nums.length));
+        /** End of Binary Search Test **/
 
         /** Test of Two Sum **/
 //        System.out.println(Arrays.toString(lcList.twoSum(new int[] {2,7,11,15}, 9)));
@@ -136,6 +140,13 @@ public class Test {
 //        System.out.println(lcList.isPalindrome(s));
         /** End Test of Valid Palindrome **/
 
+        /** Test of Pascal's Triangle **/
+        List<List<Integer>> triangle = lcList.generate(5);
+        for(List<Integer> row : triangle) {
+            System.out.println(Arrays.asList(row));
+        }
+        /** End Test of Pascal's Triangle **/
+
         /** Test of First Unique Character in a String **/
 //        String s = "leetcode";
 ////        s = "loveleetcode";
@@ -145,8 +156,8 @@ public class Test {
         /** End Test of First Unique Character in a String **/
 
         /** Test of Reverse String **/
-        char[] input = new char[] {'h','e','l','l','o'};
-        input = new char[] {'H','a','n','n','a', 'h'};
+//        char[] input = new char[] {'h','e','l','l','o'};
+//        input = new char[] {'H','a','n','n','a', 'h'};
 //        lcList.reverseString(input);
         /** End Test of Reverse String **/
 
@@ -233,16 +244,16 @@ public class Test {
         /** End Test of Binary Tree Inorder Traversal **/
 
         /** Test of Symmetric Tree **/
-        TreeNode tree = new TreeNode(1, new TreeNode(2), new TreeNode(2));
-        tree.left.left = new TreeNode(3);
-        tree.left.right = new TreeNode(4);
-        tree.right.left = new TreeNode(4);
-        tree.right.right = new TreeNode(3);
-
-//        tree = new TreeNode(1, new TreeNode(2), new TreeNode(2));
-//        tree.left.right = new TreeNode(3);
+//        TreeNode tree = new TreeNode(1, new TreeNode(2), new TreeNode(2));
+//        tree.left.left = new TreeNode(3);
+//        tree.left.right = new TreeNode(4);
+//        tree.right.left = new TreeNode(4);
 //        tree.right.right = new TreeNode(3);
-        System.out.println(lcList.isSymmetric(tree));
+//
+////        tree = new TreeNode(1, new TreeNode(2), new TreeNode(2));
+////        tree.left.right = new TreeNode(3);
+////        tree.right.right = new TreeNode(3);
+//        System.out.println(lcList.isSymmetric(tree));
         /** End Test of Symmetric Tree **/
     }
 }

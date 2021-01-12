@@ -7,12 +7,12 @@ public class LeetcodeList {
 
     // Declaring ArrayList object to help solve some problems
     private final ArrayList<Integer> tree;
-    private final List<List<Integer>> pascalT;
+    private final List<List<Integer>> pascalsT;
     private final Scanner scan;
 
     LeetcodeList() {
         this.tree = new ArrayList<>();
-        this.pascalT = new ArrayList<>();
+        this.pascalsT = new ArrayList<>();
         scan = new Scanner(System.in);
     }
 
@@ -204,15 +204,6 @@ public class LeetcodeList {
             return "";
         }
     }
-
-    // 3Sum
-    // Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?
-    // Find all unique triplets in the array which gives the sum of zero.
-    // Notice that the solution set must not contain duplicate triplets.
-//    public List<List<Integer>> threeSum(int[] nums) {
-//
-//    }
-
 
     // Valid Parentheses
     // Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -484,7 +475,37 @@ public class LeetcodeList {
     // Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
     public List<List<Integer>> generate(int numRows) {
         // define the logic to generate pascal's triangle
-        return pascalT;
+        if(numRows == 0) return pascalsT;
+
+        // add a new arraylist to pascal's triangle list
+        pascalsT.add(new ArrayList<>());
+
+        // set first row as 1
+        pascalsT.get(0).add(1);
+
+        for(int rowNum = 1; rowNum < numRows; rowNum++) {
+            // Declare local list to build following rows
+            List<Integer> row = new ArrayList<>();
+            // Declare local list reference to reference previous row
+            List<Integer> prevRow = pascalsT.get(rowNum - 1);
+
+            // first row element will always be 1.
+            row.add(1);
+
+            // each element between the first and last is equal to the
+            // sum of the elements above-and-to-the-left and above-and-to-the-right.
+            for(int i = 1; i < rowNum; i++) {
+                row.add(prevRow.get(i - 1) + prevRow.get(i));
+            }
+
+            // last row element will always be 1.
+            row.add(1);
+
+            // add the row to the triangle
+            pascalsT.add(row);
+        }
+        // return pascal's triangle
+        return pascalsT;
     }
 
     // First Unique Character in a String
