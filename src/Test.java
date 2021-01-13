@@ -141,10 +141,10 @@ public class Test {
         /** End Test of Valid Palindrome **/
 
         /** Test of Pascal's Triangle **/
-        List<List<Integer>> triangle = lcList.generate(5);
-        for(List<Integer> row : triangle) {
-            System.out.println(Arrays.asList(row));
-        }
+//        List<List<Integer>> triangle = lcList.generate(5);
+//        for(List<Integer> row : triangle) {
+//            System.out.println(Arrays.asList(row));
+//        }
         /** End Test of Pascal's Triangle **/
 
         /** Test of First Unique Character in a String **/
@@ -255,5 +255,9 @@ public class Test {
 ////        tree.right.right = new TreeNode(3);
 //        System.out.println(lcList.isSymmetric(tree));
         /** End Test of Symmetric Tree **/
+
+        /** Test of Best Time to Buy and Sell Stock II **/
+        System.out.println(lcList.maxProfit(new int[] {7,1,5,3,6,4}));
+        /** End Test of Best Time to Buy and Sell Stock II **/
     }
 }
