@@ -257,11 +257,14 @@ public class Test {
         /** End Test of Symmetric Tree **/
 
         /** Test of Best Time to Buy and Sell Stock II **/
-        System.out.println(lcList.maxProfit(new int[] {7,1,5,3,6,4}));
+//        System.out.println(lcList.maxProfit(new int[] {7,1,5,3,6,4}));
         /** End Test of Best Time to Buy and Sell Stock II **/
 
         /** Test of Gas Station **/
-        System.out.println(lcList.maxProfit(new int[] {7,1,5,3,6,4}));
+        int[] gas = new int[] {1,2,3,4,5}, cost = new int[] {3,4,5,1,2};
+//        gas = new int[] { 7,1,0,11,4 };
+//        cost = new int[] { 5,9,1,2,5 };
+        System.out.println(lcList.canCompleteCircuit(gas, cost));
         /** End Test of Gas Station **/
     }
 }
