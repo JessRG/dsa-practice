@@ -259,5 +259,9 @@ public class Test {
         /** Test of Best Time to Buy and Sell Stock II **/
         System.out.println(lcList.maxProfit(new int[] {7,1,5,3,6,4}));
         /** End Test of Best Time to Buy and Sell Stock II **/
+
+        /** Test of Gas Station **/
+        System.out.println(lcList.maxProfit(new int[] {7,1,5,3,6,4}));
+        /** End Test of Gas Station **/
     }
 }
