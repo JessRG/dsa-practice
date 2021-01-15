@@ -1027,33 +1027,57 @@ public class LeetcodeList {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         /** Brute Force Solution */
         // Loop through the gas array
-        for(int s = 0; s < gas.length; s++) {
-            // int variable to help keep track of the remaining gas in the car
-            int tank = 0;
-            // boolean to help with keeping track of the starting point (s) if circuit completes
-            boolean isPossible = true;
+//        for(int s = 0; s < gas.length; s++) {
+//            // int variable to help keep track of the remaining gas in the car
+//            int tank = 0;
+//            // boolean to help with keeping track of the starting point (s) if circuit completes
+//            boolean isPossible = true;
+//
+//            // nested loop to traverse to each gas station to complete a circuit
+//            for(int i = s; i < gas.length + s; i++) {
+//                // must use modulus to ensure that if the starting point is not the first gas station
+//                // the iteration will not go out of bounds and the gas amount and cost amount are properly accessed
+//                int station = i % gas.length;
+//
+//                // calculate the amount in tank by subtracting the gas from the cost
+//                tank += gas[station] - cost[station];
+//
+//                // if tank is less than zero set isPossible to false and break nested loop
+//                if(tank < 0) {
+//                    isPossible = false;
+//                    break;
+//                }
+//            }
+//            // check isPossible (if circuit was completed)
+//            if(isPossible) {
+//                return s;
+//            }
+//        }
+//
+//        return -1;
 
-            // nested loop to traverse to each gas station to complete a circuit
-            for(int i = s; i < gas.length + s; i++) {
-                // must use modulus to ensure that if the starting point is not the first gas station
-                // the iteration will not go out of bounds and the gas amount and cost amount are properly accessed
-                int station = i % gas.length;
+        /** Improved Solution (One Pass) */
+        // determine if the circuit is possible by calculating the difference (total gas - total cost)
+        int diff = 0;
+        for(int i = 0; i < gas.length; i++) {
+            diff += gas[i] - cost[i];
+        }
+        if(diff < 0) return -1;
 
-                // calculate the amount in tank by subtracting the gas from the cost
-                tank += gas[station] - cost[station];
+        // declare variable for tank of car and startPoint (store starting gas station)
+        int tank = 0;
+        int startPoint = 0;
 
-                // if tank is less than zero set isPossible to false and break nested loop
-                if(tank < 0) {
-                    isPossible = false;
-                    break;
-                }
-            }
-            // check isPossible (if circuit was completed)
-            if(isPossible) {
-                return s;
+        // loop through gas array to find the startPoint point where circuit will complete
+        for(int i = 0; i < gas.length; i++) {
+            tank += gas[i] - cost[i];
+            if(tank < 0) {
+                i = i + 1;
+                startPoint = i;
+                // reset tank back to zero (new startPoint point)
+                tank = 0;
             }
         }
-
-        return -1;
+        return startPoint;
     }
 }
