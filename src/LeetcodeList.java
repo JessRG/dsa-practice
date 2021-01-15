@@ -1072,8 +1072,7 @@ public class LeetcodeList {
         for(int i = 0; i < gas.length; i++) {
             tank += gas[i] - cost[i];
             if(tank < 0) {
-                i = i + 1;
-                startPoint = i;
+                startPoint = i + 1;
                 // reset tank back to zero (new startPoint point)
                 tank = 0;
             }
