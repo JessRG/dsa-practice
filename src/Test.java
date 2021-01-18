@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Test {
@@ -261,10 +262,16 @@ public class Test {
         /** End Test of Best Time to Buy and Sell Stock II **/
 
         /** Test of Gas Station **/
-        int[] gas = new int[] {1,2,3,4,5}, cost = new int[] {3,4,5,1,2};
+//        int[] gas = new int[] {1,2,3,4,5}, cost = new int[] {3,4,5,1,2};
 //        gas = new int[] { 7,1,0,11,4 };
 //        cost = new int[] { 5,9,1,2,5 };
-        System.out.println(lcList.canCompleteCircuit(gas, cost));
+//        System.out.println(lcList.canCompleteCircuit(gas, cost));
         /** End Test of Gas Station **/
+
+        /** Test of Linked List Cycle **/
+        ListNode head = new ListNode(3, new ListNode(2));
+        head.next.next = new ListNode(0, new ListNode(-4, head.next));
+        System.out.println(lcList.hasCycle(head));
+        /** End Test of Linked List Cycle **/
     }
 }
