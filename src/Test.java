@@ -273,5 +273,13 @@ public class Test {
         head.next.next = new ListNode(0, new ListNode(-4, head.next));
         System.out.println(lcList.hasCycle(head));
         /** End Test of Linked List Cycle **/
+
+        /** Test of Min Stack **/
+//        MinStack obj = new MinStack();
+//        obj.push(x);
+//        obj.pop();
+//        int param_3 = obj.top();
+//        int param_4 = obj.getMin();
+        /** End Test of Min Stack **/
     }
 }
