@@ -281,5 +281,13 @@ public class Test {
 //        int param_3 = obj.top();
 //        int param_4 = obj.getMin();
         /** End Test of Min Stack **/
+
+        /** Test of Intersection of Two Linked Lists **/
+        ListNode intersectNode = new ListNode(8, new ListNode(4, new ListNode(5)));
+        ListNode headA = new ListNode(4, new ListNode(1, intersectNode));
+        ListNode headB = new ListNode(5, new ListNode(6, new ListNode(1, intersectNode)));
+        ListNode res = lcList.getIntersectionNode(headA, headB);
+        System.out.println(res != null ? res.val : res);
+        /** End Test of Intersection of Two Linked Lists **/
     }
 }
