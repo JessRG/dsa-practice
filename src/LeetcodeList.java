@@ -921,7 +921,7 @@ public class LeetcodeList {
         return maxProduct;
     }
 
-    // Binary Tree Inorder Traversal
+    // Binary Tree Inorder Traversal (Depth First Search)
     // Given the root of a binary tree, return the inorder traversal of its nodes' values.
     public List<Integer> inorderTraversal(TreeNode root) {
 
@@ -1148,6 +1148,12 @@ public class LeetcodeList {
         }
         // if loop terminates there is no cycle
         return false;
+    }
+
+    // Intersection of Two Linked Lists
+    // Write a program to find the node at which the intersection of two singly linked lists begins.
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        return null;
     }
 }
 
