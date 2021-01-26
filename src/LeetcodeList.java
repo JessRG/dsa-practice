@@ -1187,5 +1187,12 @@ public class LeetcodeList {
     public int majorityElement(int[] nums) {
         return 0;
     }
+
+    // Excel Sheet Column Number
+    // Given a column title as appear in an Excel sheet, return its corresponding column number.
+    public int titleToNumber(String s) {
+        int sum = 0;
+        return sum;
+    }
 }
 
