@@ -1194,5 +1194,13 @@ public class LeetcodeList {
         int sum = 0;
         return sum;
     }
+
+    // Factorial Trailing Zeroes
+    // Given an integer n, return the number of trailing zeroes in n!.
+    // Follow up: Could you write a solution that works in logarithmic time complexity?
+    public int trailingZeroes(int n) {
+        // write solution here...
+        return 0;
+    }
 }
 
