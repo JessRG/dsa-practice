@@ -289,5 +289,10 @@ public class Test {
         ListNode res = lcList.getIntersectionNode(headA, headB);
         System.out.println(res != null ? res.val : res);
         /** End Test of Intersection of Two Linked Lists **/
+
+        /** Test of Rotate Array **/
+        int[] arr = {1,2,3,4,5,6,7};
+        lcList.rotate(arr, 3);
+        /** End Test of Rotate Array **/
     }
 }
