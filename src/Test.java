@@ -275,24 +275,29 @@ public class Test {
         /** End Test of Linked List Cycle **/
 
         /** Test of Min Stack **/
-//        MinStack obj = new MinStack();
-//        obj.push(x);
-//        obj.pop();
-//        int param_3 = obj.top();
-//        int param_4 = obj.getMin();
+//        ["MinStack","push","push","push","getMin","pop","top","getMin"]
+//[[],[-2],[0],[-3],[],[],[],[]]
+        MinStack minStk = new MinStack();
+        minStk.push(-2);
+        minStk.push(0);
+        minStk.push(-3);
+        System.out.println(minStk.getMin());
+        minStk.pop();
+        System.out.println(minStk.top());
+        System.out.println(minStk.getMin());
         /** End Test of Min Stack **/
 
         /** Test of Intersection of Two Linked Lists **/
-        ListNode intersectNode = new ListNode(8, new ListNode(4, new ListNode(5)));
-        ListNode headA = new ListNode(4, new ListNode(1, intersectNode));
-        ListNode headB = new ListNode(5, new ListNode(6, new ListNode(1, intersectNode)));
-        ListNode res = lcList.getIntersectionNode(headA, headB);
-        System.out.println(res != null ? res.val : res);
+//        ListNode intersectNode = new ListNode(8, new ListNode(4, new ListNode(5)));
+//        ListNode headA = new ListNode(4, new ListNode(1, intersectNode));
+//        ListNode headB = new ListNode(5, new ListNode(6, new ListNode(1, intersectNode)));
+//        ListNode res = lcList.getIntersectionNode(headA, headB);
+//        System.out.println(res != null ? res.val : res);
         /** End Test of Intersection of Two Linked Lists **/
 
         /** Test of Rotate Array **/
-        int[] arr = {1,2,3,4,5,6,7};
-        lcList.rotate(arr, 3);
+//        int[] arr = {1,2,3,4,5,6,7};
+//        lcList.rotate(arr, 3);
         /** End Test of Rotate Array **/
     }
 }

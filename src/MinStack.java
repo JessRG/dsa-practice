@@ -10,10 +10,10 @@ import java.util.List;
 public class MinStack {
 
     /** initialize your data structure here. */
-    int lowIdx = -1;
+    int currentIdx = -1;
     // list to store all/any values entered into the minStack
     List<Integer> list;
-    // List to store the indexes of the most minimum value at the end (tail) of the list
+    // List to store the indexes of the most minimum value at the end of the list
     List<Integer> lowest;
 
     public MinStack() {
@@ -23,24 +23,29 @@ public class MinStack {
     }
 
     public void push(int x) {
-        // add parameter (x) into the list and increment the lowIdx instance variable
+        // add parameter (x) into the list and increment the currentIdx instance variable
         list.add(x);
-        lowIdx++;
+        currentIdx++;
         // push into the lowest list if the list is currently empty
-        if(lowest.isEmpty()) lowest.add(lowIdx);
+        if(lowest.isEmpty()) lowest.add(currentIdx);
         // if the parameter is less than or equal to the most minimum value
-        else if(list.get(lowest.get(lowest.size() - 1)) >= x) lowest.add(lowIdx);
+        else if(list.get(lowest.get(lowest.size() - 1)) >= x) lowest.add(currentIdx);
     }
 
     public void pop() {
-        // Write logic for MinStack here...
+        // check if the last element in the list is the current lowest
+        // if it is remove the last element from the lowest list
+        // remove the last element in the list and decrement the current index
+        if(lowest.get(lowest.size() - 1) == currentIdx) lowest.remove(lowest.size() - 1);
+        list.remove(currentIdx);
+        currentIdx--;
     }
 
     public int top() {
-        return 0;
+        return list.get(currentIdx);
     }
 
     public int getMin() {
-        return 0;
+        return list.get(lowest.get(lowest.size() - 1));
     }
 }
