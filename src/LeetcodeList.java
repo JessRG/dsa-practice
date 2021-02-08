@@ -1209,8 +1209,30 @@ public class LeetcodeList {
     // Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
     // Could you do it in-place with O(1) extra space?
     public void rotate(int[] nums, int k) {
-        // Write the logic for solution here...
-        System.out.println(Arrays.toString(nums));
+        // Set k to modulus of nums length to potentially reduce the total amount of rotations
+        k %= nums.length;
+
+        // reverse nums array
+        reverse(nums, 0, nums.length - 1);
+        // reverse values from beginning of nums up to k (noninclusive)
+        reverse(nums, 0, k - 1);
+        // reverse values from k until the end of the nums array
+        reverse(nums, k, nums.length - 1);
+    }
+    // reverse method (rotate helper method) to perform a reverse operation with the given parameters
+    public void reverse(int[] arr,int start,int end) {
+        // loop swap the start and end (indices in arr)
+        while(start < end) {
+            // temp local variable to store element at start index
+            // swap the elements at start and end indices
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            // increment start/decrement end
+            start++;
+            end--;
+        }
     }
 }
 

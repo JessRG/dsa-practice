@@ -269,22 +269,22 @@ public class Test {
         /** End Test of Gas Station **/
 
         /** Test of Linked List Cycle **/
-        ListNode head = new ListNode(3, new ListNode(2));
-        head.next.next = new ListNode(0, new ListNode(-4, head.next));
-        System.out.println(lcList.hasCycle(head));
+//        ListNode head = new ListNode(3, new ListNode(2));
+//        head.next.next = new ListNode(0, new ListNode(-4, head.next));
+//        System.out.println(lcList.hasCycle(head));
         /** End Test of Linked List Cycle **/
 
         /** Test of Min Stack **/
 //        ["MinStack","push","push","push","getMin","pop","top","getMin"]
 //[[],[-2],[0],[-3],[],[],[],[]]
-        MinStack minStk = new MinStack();
-        minStk.push(-2);
-        minStk.push(0);
-        minStk.push(-3);
-        System.out.println(minStk.getMin());
-        minStk.pop();
-        System.out.println(minStk.top());
-        System.out.println(minStk.getMin());
+//        MinStack minStk = new MinStack();
+//        minStk.push(-2);
+//        minStk.push(0);
+//        minStk.push(-3);
+//        System.out.println(minStk.getMin());
+//        minStk.pop();
+//        System.out.println(minStk.top());
+//        System.out.println(minStk.getMin());
         /** End Test of Min Stack **/
 
         /** Test of Intersection of Two Linked Lists **/
@@ -296,8 +296,9 @@ public class Test {
         /** End Test of Intersection of Two Linked Lists **/
 
         /** Test of Rotate Array **/
-//        int[] arr = {1,2,3,4,5,6,7};
-//        lcList.rotate(arr, 3);
+        int[] arr = {1,2,3,4,5,6,7};
+        lcList.rotate(arr, 3);
+        System.out.println(Arrays.toString(arr));
         /** End Test of Rotate Array **/
     }
 }
