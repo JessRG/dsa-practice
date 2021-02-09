@@ -271,7 +271,7 @@ public class Test {
         /** Test of Linked List Cycle **/
 //        ListNode head = new ListNode(3, new ListNode(2));
 //        head.next.next = new ListNode(0, new ListNode(-4, head.next));
-//        System.out.println(lcList.hasCycle(head));
+//        System.out.println(LinkedListCycle.hasCycle(head));
         /** End Test of Linked List Cycle **/
 
         /** Test of Min Stack **/
@@ -291,14 +291,23 @@ public class Test {
 //        ListNode intersectNode = new ListNode(8, new ListNode(4, new ListNode(5)));
 //        ListNode headA = new ListNode(4, new ListNode(1, intersectNode));
 //        ListNode headB = new ListNode(5, new ListNode(6, new ListNode(1, intersectNode)));
-//        ListNode res = lcList.getIntersectionNode(headA, headB);
+//        ListNode res = IntersectionOfLists.getIntersectionNode(headA, headB);
 //        System.out.println(res != null ? res.val : res);
         /** End Test of Intersection of Two Linked Lists **/
 
         /** Test of Rotate Array **/
-        int[] arr = {1,2,3,4,5,6,7};
-        lcList.rotate(arr, 3);
-        System.out.println(Arrays.toString(arr));
+//        int[] arr = {1,2,3,4,5,6,7};
+//        new RotateArray().rotate(arr, 3);
+//        System.out.println(Arrays.toString(arr));
         /** End Test of Rotate Array **/
+
+        /** Test of Reverse Linked List **/
+        ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode.traverseList(list);
+        System.out.println();
+        list = ReverseLinkedList.reverseList(list);
+//        list = ReverseLinkedList.reverseListRecursive(list);
+        ListNode.traverseList(list);
+        /** End Test of Reverse Linked List **/
     }
 }

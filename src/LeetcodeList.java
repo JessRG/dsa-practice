@@ -282,7 +282,6 @@ public class LeetcodeList {
             if(nums[j] != nums[i]) {
                 i++;
                 nums[i] = nums[j];
-
             }
         }
         return i + 1;
@@ -1080,107 +1079,6 @@ public class LeetcodeList {
         return startPoint;
     }
 
-    // Linked List Cycle
-    // Given head, the head of a linked list, determine if the linked list has a cycle in it.
-    // There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer.
-    // Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
-    // Return true if there is a cycle in the linked list. Otherwise, return false.
-    public boolean hasCycle(ListNode head) {
-        /** My first solution */
-//        // declare a set to help determine if a node has been visited
-//        Set<ListNode> set = new HashSet<>();
-//
-//        // loop through linked list to determine if there is a cycle
-//        ListNode current = head;
-//        while(current != null) {
-//            //check if the set already contains
-//            if(!set.isEmpty() && set.contains(current)) {
-//                return true;
-//            }
-//            // add list node value to the set
-//            set.add(current);
-//            // set current to next node
-//            current = current.next;
-//        }
-//        return false;
-
-        /** Floyd's Tortoise and Hare Algorithm solution */
-//        if(head == null) return false;
-//        // Set ListNode reference slow (tortoise/slow runner)
-//        ListNode slow = head;
-//        // Set ListNode reference fast (hare/fast runner)
-//        ListNode fast = head.next;
-//
-//        // loop through list while slow reference does not equal to fast reference
-//        while(slow != fast) {
-//            // check if the fast reference or it's next reference is null (no cycle)
-//            if(fast == null || fast.next == null) return false;
-//
-//            // set slow to following reference
-//            slow = slow.next;
-//
-//            // set fast two references ahead
-//            fast = fast.next.next;
-//        }
-//        return true;
-
-        /** Interesting solution */
-        if(head == null) return false;
-        // create a new ListNode
-        ListNode mark = new ListNode(0);
-
-        // declare a current reference to the head of the list
-        ListNode current = head;
-
-        // iterate through the list
-        while(current != null) {
-
-            // if the current.next reference is equal to the mark node (has a cycle) return true
-            if(current.next == mark) return true;
-            // set mark.next reference to the current
-            mark.next = current;
-
-            //set current reference to the next node
-            current = current.next;
-
-            // set the former current next reference equal to mark
-            mark.next.next = mark;
-        }
-        // if loop terminates there is no cycle
-        return false;
-    }
-
-    // Intersection of Two Linked Lists
-    // Write a program to find the node at which the intersection of two singly linked lists begins.
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-
-        if(headA == null || headB == null) return null;
-
-        // Declare hashset to store node addresses from headA
-        Set<ListNode> hset = new HashSet<>();
-
-        ListNode currentA = headA;
-        while(currentA != null) {
-            // Add ListNode from listA (headA) into the hashmap
-            hset.add(currentA);
-            // set currentA to next reference in listA
-            currentA = currentA.next;
-        }
-
-        ListNode currentB = headB;
-        ListNode intersect = null;
-        while(currentB != null) {
-            // check if ListNode from listB is contained within the hashmap
-            if(hset.contains(currentB)) {
-                intersect = currentB;
-                break;
-            }
-            // set currentB to the next reference in listB
-            currentB = currentB.next;
-        }
-        return intersect;
-    }
-
     // Majority Element
     // Given an array nums of size n, return the majority element.
     // The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
@@ -1201,38 +1099,6 @@ public class LeetcodeList {
     public int trailingZeroes(int n) {
         // write solution here...
         return 0;
-    }
-
-    // Rotate Array
-    // Given an array, rotate the array to the right by k steps, where k is non-negative.
-    // Follow up:
-    // Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
-    // Could you do it in-place with O(1) extra space?
-    public void rotate(int[] nums, int k) {
-        // Set k to modulus of nums length to potentially reduce the total amount of rotations
-        k %= nums.length;
-
-        // reverse nums array
-        reverse(nums, 0, nums.length - 1);
-        // reverse values from beginning of nums up to k (noninclusive)
-        reverse(nums, 0, k - 1);
-        // reverse values from k until the end of the nums array
-        reverse(nums, k, nums.length - 1);
-    }
-    // reverse method (rotate helper method) to perform a reverse operation with the given parameters
-    public void reverse(int[] arr,int start,int end) {
-        // loop swap the start and end (indices in arr)
-        while(start < end) {
-            // temp local variable to store element at start index
-            // swap the elements at start and end indices
-            int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-
-            // increment start/decrement end
-            start++;
-            end--;
-        }
     }
 }
 
