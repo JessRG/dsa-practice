@@ -1,8 +1,5 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -302,12 +299,42 @@ public class Test {
         /** End Test of Rotate Array **/
 
         /** Test of Reverse Linked List **/
-        ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-        ListNode.traverseList(list);
-        System.out.println();
-        list = ReverseLinkedList.reverseList(list);
-//        list = ReverseLinkedList.reverseListRecursive(list);
-        ListNode.traverseList(list);
+//        ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+//        ListNode.traverseList(list);
+//        System.out.println();
+//        list = ReverseLinkedList.reverseList(list);
+////        list = ReverseLinkedList.reverseListRecursive(list);
+//        ListNode.traverseList(list);
         /** End Test of Reverse Linked List **/
+
+        /** Just something I thought was interesting (phone number for letters)  */
+        char[] letters = { 'f', 'l', 'o', 'w', 'e', 'r', 's' };
+        int [] map = { 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9};
+        int [] lettersAsNums = new int[letters.length];
+        for(int i = 0; i < letters.length; i++) {
+            lettersAsNums[i] = map[letters[i] - 'a'];
+        }
+        System.out.println(Arrays.toString(lettersAsNums));
+
+        int[] arr = { 2, 1, 1, 2, 3, 5, 1, 2, 4 };
+        arr = new int[] { 2, 5, 1, 2, 3, 5, 1, 2, 4};
+//        arr = new int[] { 2, 3, 4, 5};
+        System.out.println(duplicate(arr));
+    }
+
+    public static int duplicate(int[] a) {
+        // declare hashset to store unique values
+        Set<Integer> map = new HashSet<>();
+        int res = -1;
+        // iterate through array
+        for(int i = 0; i < a.length; i++) {
+            // check if the value/element is within the hashmap
+            if(map.contains(a[i])) {
+                res = a[i];
+                break;
+            }
+            map.add(a[i]);
+        }
+        return res;
     }
 }
