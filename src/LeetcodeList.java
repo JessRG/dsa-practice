@@ -142,25 +142,6 @@ public class LeetcodeList {
         }
     }
 
-    // Two Sum
-    // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-    // You may assume that each input would have exactly one solution, and you may not use the same element twice.
-    // You can return the answer in any order.
-    public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> myMap = new HashMap<>();
-        int[] result = new int[2];
-
-        for (int i = 0; i < nums.length; i++) {
-            if (myMap.containsKey(nums[i])) {
-                result[0] = myMap.get(nums[i]);
-                result[1] = i;
-                break;
-            }
-            myMap.put(target-nums[i], i); // store complement as key, index as value
-        }
-        return result;
-    }
-
     // Longest Common Prefix
     // Write a function to find the longest common prefix string amongst an array of strings.
     // If there is no common prefix, return an empty string "".

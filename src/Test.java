@@ -308,33 +308,37 @@ public class Test {
         /** End Test of Reverse Linked List **/
 
         /** Just something I thought was interesting (phone number for letters)  */
-        char[] letters = { 'f', 'l', 'o', 'w', 'e', 'r', 's' };
-        int [] map = { 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9};
-        int [] lettersAsNums = new int[letters.length];
-        for(int i = 0; i < letters.length; i++) {
-            lettersAsNums[i] = map[letters[i] - 'a'];
-        }
-        System.out.println(Arrays.toString(lettersAsNums));
+//        char[] letters = { 'f', 'l', 'o', 'w', 'e', 'r', 's' };
+//        int [] map = { 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9};
+//        int [] lettersAsNums = new int[letters.length];
+//        for(int i = 0; i < letters.length; i++) {
+//            lettersAsNums[i] = map[letters[i] - 'a'];
+//        }
+//        System.out.println(Arrays.toString(lettersAsNums));
 
-        int[] arr = { 2, 1, 1, 2, 3, 5, 1, 2, 4 };
-        arr = new int[] { 2, 5, 1, 2, 3, 5, 1, 2, 4};
-//        arr = new int[] { 2, 3, 4, 5};
-        System.out.println(duplicate(arr));
+//        int[] arr = { 2, 1, 1, 2, 3, 5, 1, 2, 4 };
+//        arr = new int[] { 2, 5, 1, 2, 3, 5, 1, 2, 4};
+////        arr = new int[] { 2, 3, 4, 5};
+//        System.out.println(duplicate(arr));
+
+        int[] arr = { 10, 15, 3, 7 };
+        int k = 25;
+        System.out.println(TwoSum.twoSum(arr, k));
     }
 
-    public static int duplicate(int[] a) {
-        // declare hashset to store unique values
-        Set<Integer> map = new HashSet<>();
-        int res = -1;
-        // iterate through array
-        for(int i = 0; i < a.length; i++) {
-            // check if the value/element is within the hashmap
-            if(map.contains(a[i])) {
-                res = a[i];
-                break;
-            }
-            map.add(a[i]);
-        }
-        return res;
-    }
+//    public static int duplicate(int[] a) {
+//        // declare hashset to store unique values
+//        Set<Integer> map = new HashSet<>();
+//        int res = -1;
+//        // iterate through array
+//        for(int i = 0; i < a.length; i++) {
+//            // check if the value/element is within the hashmap
+//            if(map.contains(a[i])) {
+//                res = a[i];
+//                break;
+//            }
+//            map.add(a[i]);
+//        }
+//        return res;
+//    }
 }
