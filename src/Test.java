@@ -321,9 +321,14 @@ public class Test {
 ////        arr = new int[] { 2, 3, 4, 5};
 //        System.out.println(duplicate(arr));
 
-        int[] arr = { 10, 15, 3, 7 };
-        int k = 25;
-        System.out.println(TwoSum.twoSum(arr, k));
+//        int[] arr = { 10, 15, 3, 7 };
+//        int k = 25;
+//        System.out.println(TwoSum.twoSum(arr, k));
+
+        ProductsInArray products = new ProductsInArray();
+        int[] numbers = { 1, 2, 3, 4, 5};
+        numbers = new int[] { 3, 2, 1 };
+        System.out.println(Arrays.toString(products.productsInArray(numbers)));
     }
 
 //    public static int duplicate(int[] a) {
