@@ -16,10 +16,25 @@ public class ProductsOfArrayExceptSelf {
         int[] right = new int[arr.length];
 
         // first pass (iterate through arr parameter to build left array first)
+        // set first element of left array equal to 1
+        left[0] = 1;
+        for(int i = 1; i < arr.length; i++) {
+            // calculate the product to the left of the i (current index in arr)
+            left[i] = left[i-1] * arr[i-1];
+        }
 
         // second pass (iterate through arr parameter to build right array)
+        // set last element of right array equal to 1
+        right[right.length - 1] = 1;
+        for(int i = arr.length - 2; i >= 0; i--) {
+            // calculate the product to the right of the i (current index in arr)
+            right[i] = right[i+1] * arr[i+1];
+        }
 
         // build the result array using both the left and right array
+        for(int i = 0; i < arr.length; i++) {
+            result[i] = left[i] * right[i];
+        }
 
         return result;
     }

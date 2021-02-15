@@ -325,10 +325,10 @@ public class Test {
 //        int k = 25;
 //        System.out.println(TwoSum.twoSum(arr, k));
 
-        ProductsInArray products = new ProductsInArray();
+        ProductsOfArrayExceptSelf products = new ProductsOfArrayExceptSelf();
         int[] numbers = { 1, 2, 3, 4, 5};
-        numbers = new int[] { 3, 2, 1 };
-        System.out.println(Arrays.toString(products.productsInArray(numbers)));
+//        numbers = new int[] { 3, 2, 1 };
+        System.out.println(Arrays.toString(products.productExceptSelf(numbers)));
     }
 
 //    public static int duplicate(int[] a) {
