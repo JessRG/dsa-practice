@@ -4,7 +4,7 @@ public class RotateArray {
     // Follow up:
     // Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
     // Could you do it in-place with O(1) extra space?
-    public void rotate(int[] nums, int k) {
+    public static void rotate(int[] nums, int k) {
         // Set k to modulus of nums length to potentially reduce the total amount of rotations
         k %= nums.length;
 
@@ -16,7 +16,7 @@ public class RotateArray {
         reverse(nums, k, nums.length - 1);
     }
     // reverse method (rotate helper method) to perform a reverse operation with the given parameters
-    public void reverse(int[] arr,int start,int end) {
+    public static void reverse(int[] arr,int start,int end) {
         // loop swap the start and end (indices in arr)
         while(start < end) {
             // temp local variable to store element at start index
