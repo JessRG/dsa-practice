@@ -2,24 +2,6 @@ import java.util.ArrayList;
 
 public class BinarySearch {
 
-    // Binary Search method
-    public static boolean binarySearch(int v, int[] nums, int low, int high) {
-        if(low > high) {
-            System.out.println("Not found");
-            return false;
-        }
-
-        int mid = (low + high) / 2;
-        if(v == nums[mid]) {
-            System.out.printf("Found it at %d!\n", mid);
-            return true;
-        } else if(v < nums[mid]) {
-            return binarySearch(v, nums, low, mid-1);
-        } else {
-            return binarySearch(v, nums, mid+1, high);
-        }
-    }
-
     // Search in a Binary Search Tree
     // Given the root node of a binary search tree (BST) and a value. You need to find the node in the BST that the node's value equals
     // the given value. Return the subtree rooted with that node. If such node doesn't exist, you should return NULL.
