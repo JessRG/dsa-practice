@@ -1,13 +1,49 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Intervals {
 
+    public static void main(String[] args) {
+        int[][] intervals = { {1,3},{2,6},{8,10},{15,18} };
+
+        for (int[] elem : mergeWithStack(intervals)) {
+            System.out.print(Arrays.toString(elem));
+        }
+    }
     // Merge Intervals
     // Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals,
     // and return an array of the non-overlapping intervals that cover all the intervals in the input.
+    public static int[][] mergeWithStack(int[][] intervals) {
+        if (intervals == null || intervals.length <= 1) {
+            return intervals;
+        }
+
+        Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
+
+        Stack<int[]> mergeStk = new Stack<>();
+        mergeStk.push(intervals[0]);
+
+        for (int i = 1; i < intervals.length; i++) {
+            int currStart = intervals[i][0];
+            int currEnd = intervals[i][1];
+
+            int[] top = mergeStk.peek();
+
+            if (currStart <= top[1]) {
+                // get the max of the two interval ends
+                top[1] = Math.max(top[1], currEnd);
+            } else {
+                mergeStk.push(intervals[i]);
+            }
+        }
+
+        int [][] ans = new int[mergeStk.size()][2];
+        for (int i = mergeStk.size() - 1; i >= 0; i--) {
+            ans[i] = mergeStk.pop();
+        }
+
+        return ans;
+    }
+
     public static int[][] merge(int[][] intervals) {
         // check intervals length
         if(intervals.length == 0) return new int[0][0];

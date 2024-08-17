@@ -27,28 +27,23 @@ public class MissingNumber {
 
         /** Cyclic Sort solution (can be used to solve a few other problems) */
         // store the length of nums array
-        int n = nums.length;
-        int i = 0;
-        while(i < n) {
-            // check if current element is not equal to its index position and is less than nums length
-            if(nums[i] != i && nums[i] < n) {
-                // store the current element value (index position in array where it should be)
-                int j = nums[i];
-                // swap current element value with whatever element value is at position j
-                swap(nums, i, j);
+        int n = 0;
+        while(n < nums.length) {
+            int correct = nums[n];
+            if(nums[n] != nums[correct]) {
+                swap(nums, n, correct);
             } else {
-                // pre-increment i if current element value is equal to the index position
-                ++i;
+                n++;
             }
         }
-        // check array to find the missing value
-        for(int j = 0; j < n; j++){
-            if(nums[j] != j){
-                return j;
+
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] != i){
+                return i;
             }
         }
-        // if for loop completes return the nums array length
-        return n;
+        System.out.println(nums.toString());
+        return nums.length;
 
         /** Improved Solution */
 //        int n = nums.length;
@@ -73,10 +68,31 @@ public class MissingNumber {
 //        }
     }
 
+    public int firstMissingPositive(int[] nums) {
+        int n = 0;
+
+        while(n < nums.length) {
+            int correctIdx = nums[n] - 1;
+            if (nums[n] > 0 && nums[n] <= nums.length && nums[n] != nums[correctIdx]) {
+                swap(nums, n, correctIdx);
+            } else {
+                n++;
+            }
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+
+        return nums.length + 1;
+    }
+
     // swap function to swap two element values within an array
-    public static void swap(int[] arr, int i, int j) {
-        int temp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = temp;
+    public static void swap(int[] arr, int first, int second) {
+        int temp = arr[second];
+        arr[second] = arr[first];
+        arr[first] = temp;
     }
 }

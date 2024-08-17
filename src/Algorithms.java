@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Stack;
+
 public class Algorithms {
 
     // Depth First Search
@@ -5,13 +8,44 @@ public class Algorithms {
     // Breadth First Search
 
     // Matching Bracket Problem (Matching Parenthesis)
+    private HashMap<Character, Character> Tokens = new HashMap<>() {{
+        put(']', '[');
+        put(')', '(');
+        put('}', '{');
+        }};
+
+    private boolean isClosingCharacter(char character) {
+        return Tokens.containsKey(character);
+    }
+
+    private boolean isMatch(Character top, char current) {
+        return top.equals(Tokens.get(current));
+    }
+
+    public boolean isBalanced(String expression) {
+        Stack<Character> stk = new Stack<>();
+
+        for (char ltr : expression.toCharArray()) {
+            // check if letter is a closing character
+            if (isClosingCharacter(ltr)) {
+                if (stk.isEmpty() || !isMatch(stk.pop(), ltr)) {
+                    return false;
+                } else {
+                    continue;
+                }
+            }
+
+            stk.push(ltr);
+        }
+        return stk.isEmpty();
+    }
 
     // Hash Tables
 
     // Variables and Pointers Manipulation
 
     // Reverse a Linked List
-    public static ListNode reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {
         // check if either reference parameter head or head's next reference is null
         if(head == null || head.next == null) return head;
 
