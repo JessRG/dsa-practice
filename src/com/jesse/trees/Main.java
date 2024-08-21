@@ -9,8 +9,8 @@ public class Main {
 //        bt.prettyDisplay();
 
 //        BST tree = new BST();
-////        int[] nums = { 5, 2, 7, 1, 4, 6, 9, 8, 3, 10 };
-////        tree.populate(nums);
+//        int[] nums = { 5, 2, 7, 1, 4, 6, 9, 8, 3, 10 };
+//        tree.populate(nums);
 //        int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 //        tree.populateSorted(nums);
 
@@ -26,8 +26,8 @@ public class Main {
         int[] arr = {3, 8, 6, 7, -2, -8, 4, 9};
 
         SegmentTree tree = new SegmentTree(arr);
-//        tree.display();
+        tree.display();
 
-        System.out.println(tree.query(1, 6));
+//        System.out.println(tree.query(1, 6));
     }
 }

@@ -1,7 +1,5 @@
 package com.jesse.patterns;
 
-import java.util.Arrays;
-
 public class Triangle {
 
     public static void main(String[] args) {
@@ -9,7 +7,7 @@ public class Triangle {
         int[] arr = {4, 3, 2, 8, 1};
         selection(arr, arr.length, 0, 0);
 //        bubble(arr, arr.length - 1,0);
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
     }
 
     static void triangle(int r, int c) {
