@@ -16,10 +16,10 @@ public class ReverseVowels {
         String vowels = "aeiouAEIOU";
         char[] ch = s.toCharArray();
         while (start < end) {
-            while (vowels.indexOf(ch[start]) == -1) {
+            while (vowels.indexOf(ch[start]) == -1 && start < end) {
                 start++;
             }
-            while (vowels.indexOf(ch[end]) == -1) {
+            while (vowels.indexOf(ch[end]) == -1 && end > 0) {
                 end--;
             }
 
