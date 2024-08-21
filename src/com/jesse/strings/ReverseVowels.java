@@ -1,6 +1,8 @@
 package com.jesse.strings;
 
 public class ReverseVowels {
+    static final String vowels = "aeiouAEIOU";
+
     public static void main(String[] args) {
 //        String s = "hello";
         String s = "AEIOU";
@@ -13,13 +15,12 @@ public class ReverseVowels {
         int start = 0;
         int end = s.length() - 1;
 
-        String vowels = "aeiouAEIOU";
         char[] ch = s.toCharArray();
         while (start < end) {
             while (vowels.indexOf(ch[start]) == -1 && start < end) {
                 start++;
             }
-            while (vowels.indexOf(ch[end]) == -1 && end > 0) {
+            while (vowels.indexOf(ch[end]) == -1 && start < end) {
                 end--;
             }
 
@@ -32,7 +33,6 @@ public class ReverseVowels {
                 end--;
             }
         }
-        s = new String(ch);
-        return s;
+        return new String(ch);
     }
 }
