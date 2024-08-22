@@ -29,18 +29,18 @@ public class ShortestWordDistance {
         if (word1.equals(word2)) {
             return 0;
         }
-        int distance = Integer.MAX_VALUE;
-        int idx1 = -1;
-        int idx2 = -1;
+        int distance = words.length;
+        int pos1 = -1;
+        int pos2 = -1;
         for (int i = 0; i < words.length; i++) {
             if (word1.equals(words[i])) {
-                idx1 = i;
+                pos1 = i;
             }
             if (word2.equals(words[i])) {
-                idx2 = i;
+                pos2 = i;
             }
-            if (idx1 != -1 && idx2 != -1) {
-                distance = Math.min(distance, Math.abs(idx2 - idx1));
+            if (pos1 != -1 && pos2 != -1) {
+                distance = Math.min(distance, Math.abs(pos1 - pos2));
             }
         }
         return distance;
