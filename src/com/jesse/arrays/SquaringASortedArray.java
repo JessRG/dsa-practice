@@ -30,14 +30,14 @@ public class SquaringASortedArray {
         int end = n - 1;
         int highestIdx = n - 1;
         while (start < end) {
-            int s1 = arr[start] * arr[start];
-            int s2 = arr[end] * arr[end];
+            int leftSquare = arr[start] * arr[start];
+            int rightSquare = arr[end] * arr[end];
 
-            if (s1 > s2) {
-                squares[highestIdx--] = s1;
+            if (leftSquare > rightSquare) {
+                squares[highestIdx--] = leftSquare;
                 start++;
             } else {
-                squares[highestIdx--] = s2;
+                squares[highestIdx--] = rightSquare;
                 end--;
             }
         }
