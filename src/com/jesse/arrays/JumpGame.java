@@ -29,11 +29,9 @@ public class JumpGame {
                 return true;
             } else {
                 visited[i] = true;
-                if (jump > 0) {
-                    for (int pos = i+1; pos <= i + jump; pos++) {
-                        if (nums[pos] != 0 && !visited[pos]) {
-                            stk.push(new Integer[] {pos, nums[pos]});
-                        }
+                for (int pos = i+1; pos <= i + jump; pos++) {
+                    if (nums[pos] != 0 && !visited[pos]) {
+                        stk.push(new Integer[] {pos, nums[pos]});
                     }
                 }
             }
