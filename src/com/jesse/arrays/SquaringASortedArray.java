@@ -34,13 +34,12 @@ public class SquaringASortedArray {
             int s2 = arr[end] * arr[end];
 
             if (s1 > s2) {
-                squares[highestIdx] = s1;
+                squares[highestIdx--] = s1;
                 start++;
             } else {
-                squares[highestIdx] = s2;
+                squares[highestIdx--] = s2;
                 end--;
             }
-            highestIdx--;
         }
         return squares;
     }
