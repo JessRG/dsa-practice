@@ -11,7 +11,7 @@ public class Islands {
 //[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
         int[][] matrix = new int[][] {{1, 1, 1, 0, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 0}, {0, 0, 1, 0, 0}, {0, 0, 1, 0, 0}};
         matrix = new int[][] {{0, 1, 1, 1, 0},{0, 0, 0, 1, 1},{0, 1, 1, 1, 0},{0, 1, 1, 0, 0},{0, 0, 0, 0, 0}};
-        matrix = new int[][] {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
+//        matrix = new int[][] {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
         System.out.println(islands.countIslands(matrix));
     }
 
@@ -22,7 +22,7 @@ public class Islands {
 //
 //        for (int i = 0; i < matrix.length; i++) {
 //            for (int j = 0; j < matrix[0].length; j++) {
-//                if (!visited[i][j]) {
+//                if (!visited[i][j] && matrix[i][j] == 1) {
 //                    totalIslands += findIslands(visited, matrix, i, j);
 //                }
 //            }
