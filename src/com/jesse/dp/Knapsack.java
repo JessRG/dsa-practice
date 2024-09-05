@@ -11,23 +11,50 @@ public class Knapsack {
 //        capacity = 6;
         System.out.println(ks.solveKnapsack(profits, weights, capacity));
     }
+//    public int solveKnapsack(int[] profits, int[] weights, int capacity) {
+//        // TODO: Write your code here
+//        return knapsackRecursive(profits, weights, capacity, 0);
+//    }
+//
+//    private int knapsackRecursive(int[] profits, int[] weights, int capacity, int index) {
+//        if (capacity <= 0 || index >= profits.length) {
+//            return 0;
+//        }
+//
+//        int profit1 = Integer.MIN_VALUE;
+//        if (weights[index] <= capacity) {
+//            profit1 = profits[index] + knapsackRecursive(profits, weights, capacity - weights[index], index + 1);
+//        }
+//
+//        int profit2 = knapsackRecursive(profits, weights, capacity, index + 1);
+//
+//        return Math.max(profit1, profit2);
+//    }
+
+    // ** Memoization solution **
     public int solveKnapsack(int[] profits, int[] weights, int capacity) {
         // TODO: Write your code here
-        return knapsackRecursive(profits, weights, capacity, 0);
+        int[][] dp = new int[profits.length][capacity + 1];
+        return knapsackRecursive(dp, profits, weights, capacity, 0);
     }
 
-    private int knapsackRecursive(int[] profits, int[] weights, int capacity, int index) {
-        if (index >= profits.length) {
+    private int knapsackRecursive(int[][] dp, int[] profits, int[] weights, int capacity, int index) {
+        if (capacity <= 0 || index >= profits.length) {
             return 0;
         }
 
-        int profit1 = Integer.MIN_VALUE;
-        if (weights[index] <= capacity) {
-            profit1 = profits[index] + knapsackRecursive(profits, weights, capacity - weights[index], index + 1);
+        if (dp[index][capacity] != 0) {
+            return dp[index][capacity];
         }
 
-        int profit2 = knapsackRecursive(profits, weights, capacity, index + 1);
+        int profits1 = Integer.MIN_VALUE;
+        if (weights[index] <= capacity) {
+            profits1 = profits[index] + knapsackRecursive(dp, profits, weights, capacity - weights[index], index + 1);
+        }
 
-        return Math.max(profit1, profit2);
+        int profits2 = knapsackRecursive(dp, profits, weights, capacity, index + 1);
+
+        dp[index][capacity] = Math.max(profits1, profits2);
+        return dp[index][capacity];
     }
 }
