@@ -8,7 +8,7 @@ public class Knapsack {
         int capacity = 7;
 //        profits = new int[] {1,6,10,16};
 //        weights = new int[] {1,2,3,5};
-//        capacity = 6;
+        capacity = 6;
         System.out.println(ks.solveKnapsack(profits, weights, capacity));
         System.out.println(ks.solveKnapsackTabulation(profits, weights, capacity));
     }
@@ -95,6 +95,25 @@ public class Knapsack {
             }
         }
 
+        printSelectedElements(dp, weights, profits, capacity);
+
         return dp[n-1][capacity];
+    }
+
+    private void printSelectedElements(int[][] dp, int[] weights, int[] profits, int capacity) {
+        System.out.print("Selected weights:");
+        int totalProfit = dp[profits.length - 1][capacity];
+        for (int i = weights.length - 1; i > 0; i--) {
+            if (totalProfit != dp[i - 1][capacity]) {
+                System.out.print(" " +weights[i]);
+                capacity -= weights[i];
+                totalProfit -= profits[i];
+            }
+        }
+
+        if (totalProfit != 0) {
+            System.out.print(" " + weights[0]);
+        }
+        System.out.println("");
     }
 }
