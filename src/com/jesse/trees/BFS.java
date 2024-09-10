@@ -151,6 +151,45 @@ public class BFS {
         return levels;
     }
 
+    // Alternate solution w/o Deque
+    public List<List<Integer>> zigzagLevelOrderQueue(TreeNode root) {
+        List<List<Integer>> levels = new ArrayList<>();
+
+        if (root == null) {
+            return levels;
+        }
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        boolean reverse = false;
+
+        while (!q.isEmpty()) {
+            List<Integer> lvl = new ArrayList<>();
+            int lvlSize = q.size();
+
+            for (int i = 0; i < lvlSize; i++) {
+                TreeNode node = q.poll();
+
+                if (!reverse) {
+                    lvl.add(node.val);
+                } else {
+                    lvl.add(0, node.val);
+                }
+
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
+            }
+            levels.add(lvl);
+            reverse = !reverse;
+        }
+
+        return levels;
+    }
+
     // Binary Tree Level Order Traversal II
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> levels = new ArrayList<>();
