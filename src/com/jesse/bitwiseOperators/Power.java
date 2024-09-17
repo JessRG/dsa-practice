@@ -2,8 +2,8 @@ package com.jesse.bitwiseOperators;
 
 public class Power {
     public static void main(String[] args) {
-        int power = 6;
-        int base = 3;
+        int power = 4;
+        int base = 2;
         int ans = 1;
 
         while (power > 0) {
