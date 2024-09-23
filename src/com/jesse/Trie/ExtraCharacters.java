@@ -27,7 +27,7 @@ public class ExtraCharacters {
                 }
                 node = node.children[c - 'a'];
 
-                if (node.isEndOfWord) {
+                if (node.isEnd) {
                     // update dp if word is found
                     dp[s] = Math.min(dp[s], dp[e+1]);
                 }
@@ -47,7 +47,7 @@ public class ExtraCharacters {
                 }
                 node = node.children[c - 'a'];
             }
-            node.isEndOfWord = true;
+            node.isEnd = true;
         }
         return root;
     }
