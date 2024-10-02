@@ -26,10 +26,11 @@ public class ChannelMaxQuality {
 
     public static void main(String[] args) {
         List<Integer> packets = Arrays.asList(1, 2, 3, 4, 5);
-//        packets = Arrays.asList(5, 2, 2, 1, 5, 3);
+        packets = Arrays.asList(5, 2, 2, 1, 5, 3);
         int n = 2;
 
         System.out.println(calculateMedianSum(packets, n));
+        System.out.println(calculateMedianSumWithoutSort(packets, n));
     }
 
     public static long calculateMedianSum(List<Integer> packets, int n) {
@@ -60,6 +61,45 @@ public class ChannelMaxQuality {
                 minHeap.add(maxHeap.poll());
             } else if (minHeap.size() > maxHeap.size()) {
                 maxHeap.add(minHeap.poll());
+            }
+        }
+
+        // add median of the last channel
+        if (minHeap.size() == maxHeap.size()) {
+            ans += (long) Math.ceil((minHeap.peek() + maxHeap.peek()) / 2.0);
+        } else {
+            ans += maxHeap.peek();
+        }
+
+        return ans;
+    }
+
+    public static long calculateMedianSumWithoutSort(List<Integer> packets, int n) {
+        // write your code here
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+        int m = packets.size();
+        long ans = 0;
+
+        // populate heap with all packets
+        for (int i = 0; i < m; i++) {
+            maxHeap.add(packets.get(i));
+        }
+
+        // remove largest packets from max heap and add to each channel (excluding the last channel)
+        for (int i = 0; i < n - 1; i++) {
+            ans += maxHeap.poll();
+        }
+
+        // balance both heaps
+        if (maxHeap.size() % 2 == 0) {
+            while (maxHeap.size() > minHeap.size()) {
+                minHeap.add(maxHeap.poll());
+            }
+        } else {
+            while (maxHeap.size() > minHeap.size() + 1) {
+                minHeap.add(maxHeap.poll());
             }
         }
 
