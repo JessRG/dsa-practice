@@ -106,7 +106,6 @@ public class Heap<T extends Comparable<T>> {
                 // the min heap property is not violated, so break the loop
                 break;
             }
-
             index = smallerChildIndex;
         }
     }
