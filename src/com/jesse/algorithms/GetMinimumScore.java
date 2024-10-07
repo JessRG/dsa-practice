@@ -1,4 +1,4 @@
-package com.jesse.arrays;
+package com.jesse.algorithms;
 
 public class GetMinimumScore {
 //    Given an array of integers and two specified numbers, find a subarray from the original array that contains both of these specified numbers, with the requirement that the subarray contains the minimum number of distinct numbers. Return the count of distinct numbers in this subarray.

@@ -27,7 +27,10 @@ public class ChannelMaxQuality {
     public static void main(String[] args) {
         List<Integer> packets = Arrays.asList(1, 2, 3, 4, 5);
         packets = Arrays.asList(5, 2, 2, 1, 5, 3);
+        packets = Arrays.asList(1, 2, 3, 2, 1, 5);
         int n = 2;
+        n = 3;
+
 
         System.out.println(calculateMedianSum(packets, n));
         System.out.println(calculateMedianSumWithoutSort(packets, n));
