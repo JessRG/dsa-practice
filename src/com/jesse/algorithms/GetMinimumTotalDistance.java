@@ -1,10 +1,6 @@
 package com.jesse.algorithms;
 
 public class GetMinimumTotalDistance {
-    public static void main(String[] args) {
-
-    }
-
 //    Amazon has recently established n distribution centers in a new location.
 //    They want to set up 2 warehouses to serve these distribution centers.
 //    Note that the centers and warehouses are all built along a straight line.
@@ -22,6 +18,10 @@ public class GetMinimumTotalDistance {
 //
 //    Returns
 //    int: the minimum sum of distances
+
+    public static void main(String[] args) {
+
+    }
 
     public int getMinTotalDistance(int[] dist_centers) {
         // write your code here
